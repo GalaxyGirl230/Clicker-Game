@@ -1,0 +1,68 @@
+<doctype!>
+
+<!--
+Zak Clough
+Pokemon Clicker
+4/20/2015
+-->
+
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<title>Pokemon Clicker</title>
+	</head>
+
+	<body>
+		</br>
+		<h1>Pokemon Clicker</h1>
+		<h3>Instructions: Click the different berries to get their respective berries.
+		Then use those berries to buy pokemon by clicking on their picture.
+		<!--Once you get enough of a pokemon, you can evolve those pokemon to the next
+		lvl of evolution. Get as many berries as you can and be awesome.-->
+		</h3>
+		</br></br>
+		<img src="Images/sitrus_berry.png", onClick="berryClick(1000)">
+		</br></br></br>
+		<span id="berries"></span><span> Sitrus Berries</span>
+		</br></br>
+		<span id="leppas"></span><span> Leppa Berries</span>
+		</br></br></br>
+		<table>
+			<tr>
+				<td><img src="Images/charmander.png", onClick="buyCharmander()">
+				Charmander: <span id="charmanders">0</span><br />
+				Cost: <span id="charmanderCost">10</span><span> Sitrus Berries</span></br>
+				<strong>Gives:</strong> 1 Sitrus Berry per second.</td>
+				
+				<td><img src="Images/bulbasaur.png", onClick="buyBulbasaur()">
+				Bulbasaur: <span id="bulbasaurs">0</span><br />
+				Cost: <span id="bulbasaurCost">50</span><span> Sitrus Berries</span></br>
+				<strong>Gives:</strong> 5 Sitrus Berries per second.</td>
+				<td><img src="Images/squirtle.png", onClick="buySquirtle()">
+				Squirtle: <span id="squirtles">0</span><br />
+				Cost: <span id="squirtleCost">100</span><span> Sitrus Berries</span></br>
+				<strong>Gives:</strong> 10 Sitrus Berries per second.</td>
+			</tr>
+		</table></br></br>
+		<table>
+			<tr>
+				<td><img src="Images/pikachu.png", onClick="buyCookie()">
+				Pikachu: <span id="cookies">0</span><br />
+				Cost: <span id="cookieCost">500</span><span> Sitrus Berries</span></br>
+				<strong>Gives:</strong> 50 Sitrus Berries per second.</td>
+				<td><img src="Images/piplup.png", onClick="buyPiplup()">
+				Piplup: <span id="piplups">0</span><br />
+				Cost: <span id="piplupCost">1000</span><span> Sitrus Berries</span></br>
+				<strong>Gives:</strong> 1 Leppa Berry per second,</br>
+				75 Sitrus Berries per second</td>
+				<td><img src="Images/turtwig.png", onClick="buyTurtwig()">
+				Turtwig: <span id="turtwigs">0</span><br />
+				Cost: <span id="turtwigCost">2500</span><span> Leppa Berries</span></br>
+				<strong>Gives:</strong> 5 Leppa Berries per second.</td>
+			</tr>
+		</table>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+
+</html>
