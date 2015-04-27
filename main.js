@@ -6,6 +6,10 @@ var cookies = 0; //this is really Pikachu, but the variable "pikachu" wasn't wor
 var piplups = 0;
 var leppas = 0;
 var turtwigs = 0;
+var weedle = 0;
+var pidgey = 0;
+var lum = 0;
+var rattata = 0;
 
 function berryClick(number){
 	berries = berries + number;
@@ -14,6 +18,10 @@ function berryClick(number){
 function leppaClick(number){
 	leppas = leppas + number;
 	document.getElementById("leppas").innerHTML = leppas;
+};
+function lumClick(number){
+	lum = lum + number;
+	document.getElementById("lum").innerHTML = lum;
 };
 
 function buyCharmander(){
@@ -88,11 +96,52 @@ function buyTurtwig(){
     document.getElementById('turtwigCost').innerHTML = nextCost;
 };
 
+function buyWeedle(){
+    var weedleCost = Math.floor(4000 * Math.pow(1.5,weedle));
+    if(leppas >= weedleCost){
+        weedle = weedle + 1;
+    	leppas = leppas - weedleCost;
+        document.getElementById('weedle').innerHTML = weedle;
+        document.getElementById('leppas').innerHTML = leppas;
+    };
+    var nextCost = Math.floor(4000 * Math.pow(1.5,weedle));
+    document.getElementById('weedleCost').innerHTML = nextCost;
+};
+
+function buyPidgey(){
+    var pidgeyCost = Math.floor(6000 * Math.pow(1.5,pidgey));
+    if(leppas >= pidgeyCost){
+        pidgey = pidgey + 1;
+    	leppas = leppas - pidgeyCost;
+        document.getElementById('pidgey').innerHTML = pidgey;
+        document.getElementById('leppas').innerHTML = leppas;
+    };
+    var nextCost = Math.floor(6000 * Math.pow(1.5,pidgey));
+    document.getElementById('pidgeyCost').innerHTML = nextCost;
+};
+
+function buyRattata(){
+    var rattataCost = Math.floor(8000 * Math.pow(1.5,rattata));
+    if(leppas >= rattataCost){
+        rattata = rattata + 1;
+    	leppas = leppas - rattataCost;
+        document.getElementById('rattata').innerHTML = rattata;
+        document.getElementById('leppas').innerHTML = leppas;
+    };
+    var nextCost = Math.floor(8000 * Math.pow(1.5,rattata));
+    document.getElementById('rattataCost').innerHTML = nextCost;
+};
+
 window.setInterval(function(){
 	berryClick(charmanders);
 	berryClick(bulbasaurs * 5);
 	berryClick(squirtles * 10);
 	berryClick(cookies * 50);
+	berryClick(piplups * 75);
 	leppaClick(piplups);
 	leppaClick(turtwigs * 5);
+	leppaClick(weedle * 10);
+	leppaClick(pidgey * 50);
+	leppaClick(rattata * 75);
+	lumClick(rattata);
 }, 1000);
