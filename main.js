@@ -4,12 +4,25 @@ var bulbasaurs = 0;
 var squirtles = 0;
 var cookies = 0; //this is really Pikachu, but the variable "pikachu" wasn't working for some reason, so I changed it to cookies.
 var piplups = 0;
+
 var leppas = 0;
 var turtwigs = 0;
 var weedle = 0;
 var pidgey = 0;
+
 var lum = 0;
 var rattata = 0;
+var ekans = 0;
+var caterpie = 0;
+var vulpix = 0;
+
+var sitrusPS = 0;
+var leppaPS = 0;
+var lumPS = 0;
+var oranPS = 0;
+
+var oran = 0;
+var spearow = 0;
 
 function berryClick(number){
 	berries = berries + number;
@@ -22,6 +35,27 @@ function leppaClick(number){
 function lumClick(number){
 	lum = lum + number;
 	document.getElementById("lum").innerHTML = lum;
+};
+function oranClick(number){
+	oran = oran + number;
+	document.getElementById("oran").innerHTML = oran;
+};
+
+function sitrusPerSec(){
+	sitrusPS = charmanders + (bulbasaurs * 5) + (squirtles * 10) + (cookies * 50) + (piplups * 75);
+	document.getElementById("sitrusPS").innerHTML = sitrusPS;
+};
+function leppaPerSec(){
+	leppaPS = piplups + (turtwigs * 5) + (weedle * 10) + (pidgey * 50) + (rattata * 75);
+	document.getElementById("leppaPS").innerHTML = leppaPS;
+};
+function lumPerSec(){
+	lumPS = rattata + (caterpie * 5) + (ekans * 10) + (vulpix * 50) + (spearow * 75);
+	document.getElementById("lumPS").innerHTML = lumPS;
+};
+function oranPerSec(){
+	oranPS = spearow;
+	document.getElementById("oranPS").innerHTML = oranPS;
 };
 
 function buyCharmander(){
@@ -132,16 +166,77 @@ function buyRattata(){
     document.getElementById('rattataCost').innerHTML = nextCost;
 };
 
+function buyCaterpie(){                                             //Cost won't update for some reason.
+    var caterpieCost = Math.floor(2500 * Math.pow(1.5,caterpie));
+    if(lum >= caterpieCost){
+        caterpie = caterpie + 1;
+    	lum = lum - caterpieCost;
+        document.getElementById('caterpie').innerHTML = caterpie;
+        document.getElementById('lum').innerHTML = lum;
+    };
+    var nextCost = Math.floor(2500 * Math.pow(1.5,rattata));
+    document.getElementById('caterpieCost').innerHTML = nextCost;
+};
+
+function buyEkans(){
+    var ekansCost = Math.floor(4000 * Math.pow(1.5,ekans));
+    if(lum >= ekansCost){
+        ekans = ekans + 1;
+    	lum = lum - ekansCost;
+        document.getElementById('ekans').innerHTML = ekans;
+        document.getElementById('lum').innerHTML = lum;
+    };
+    var nextCost = Math.floor(4000 * Math.pow(1.5,ekans));
+    document.getElementById('ekansCost').innerHTML = nextCost;
+};
+
+function buyVulpix(){
+    var vulpixCost = Math.floor(6000 * Math.pow(1.5,vulpix));
+    if(lum >= vulpixCost){
+        vulpix = vulpix + 1;
+    	lum = lum - vulpixCost;
+        document.getElementById('vulpix').innerHTML = vulpix;
+        document.getElementById('lum').innerHTML = lum;
+    };
+    var nextCost = Math.floor(6000 * Math.pow(1.5,vulpix));
+    document.getElementById('vulpixCost').innerHTML = nextCost;
+};
+
+function buySpearow(){
+    var spearowCost = Math.floor(8000 * Math.pow(1.5,spearow));
+    if(lum >= spearowCost){
+        spearow = spearow + 1;
+    	lum = lum - spearowCost;
+        document.getElementById('spearow').innerHTML = spearow;
+        document.getElementById('lum').innerHTML = lum;
+    };
+    var nextCost = Math.floor(8000 * Math.pow(1.5,spearow));
+    document.getElementById('spearowCost').innerHTML = nextCost;
+};
+
 window.setInterval(function(){
 	berryClick(charmanders);
 	berryClick(bulbasaurs * 5);
 	berryClick(squirtles * 10);
 	berryClick(cookies * 50);
 	berryClick(piplups * 75);
+	
 	leppaClick(piplups);
 	leppaClick(turtwigs * 5);
 	leppaClick(weedle * 10);
 	leppaClick(pidgey * 50);
 	leppaClick(rattata * 75);
+	
 	lumClick(rattata);
+	lumClick(caterpie * 5);
+	lumClick(ekans * 10);
+	lumClick(vulpix * 50);
+	lumClick(spearow * 75);
+		
+	sitrusPerSec();
+	leppaPerSec();
+	lumPerSec();
+	oranPerSec();
+	
+	oranClick(spearow);
 }, 1000);

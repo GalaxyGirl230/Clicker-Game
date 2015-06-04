@@ -25,18 +25,63 @@ Code for later on.
 		<h1>Pokemon Clicker</h1>
 		<h3>Instructions: Click the different berries to get their respective berries.
 		Then use those berries to buy pokemon by clicking on their picture.
-		<!--Once you get enough of a pokemon, you can evolve those pokemon to the next
-		lvl of evolution. Get as many berries as you can and be awesome.-->
+		<!--Once you get enough of a pokemon, you can evolve those pokemon to the next level of evolution. Get as many berries as you can and be awesome.-->
 		</h3>
-		</br></br>
-		<img src="Images/sitrus_berry.png", onClick="berryClick(1)">
-		</br></br></br>
-		<span id="berries"></span><span> Sitrus Berries</span>
-		</br></br>
-		<span id="leppas"></span><span> Leppa Berries</span>
-		</br></br>
-		<span id="lum"></span><span> Lum Berries</span>
-		</br></br></br>
+	</br></br>
+		<img src="Images/sitrus_berry.png", onClick="lumClick(1000)">
+	</br></br></br>
+		<table>
+			<tr>
+				<td>
+					<span id="berries"></span><span> Sitrus Berries</span>
+				</td>
+	<td></td>
+	<td></td>
+				<td>
+					<strong><span id="sitrusPS"></span><span>/s</span></strong>
+				</td>
+			</tr>
+		</table>
+	</br>
+		<table>
+			<tr>
+				<td>
+					<span id="leppas"></span><span> Leppa Berries</span>
+				</td>
+	<td></td>
+	<td></td>
+				<td>
+					<strong><span id="leppaPS"></span><span>/s</span></strong>
+				</td>
+			</tr>
+		</table>
+	</br>
+		<table>
+			<tr>
+				<td>
+					<span id="lum"></span><span> Lum Berries</span>
+				</td>
+	<td></td>
+	<td></td>
+				<td>
+					<strong><span id="lumPS"></span><span>/s</span></strong>
+				</td>
+			</tr>
+		</table>
+	</br>
+		<table>
+			<tr>
+				<td>
+					<span id="oran"></span><span> Oran Berries</span>
+				</td>
+	<td></td>
+	<td></td>
+				<td>
+					<strong><span id="oranPS"></span><span>/s</span></strong>
+				</td>
+			</tr>
+		</table>
+	</br></br></br>
 		<table>
 			<tr>
 				<td><img src="Images/charmander.png", onClick="buyCharmander()">
@@ -87,9 +132,65 @@ Code for later on.
 				Cost: <span id="rattataCost">8000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 1 Lum Berries per second,</br>
 				75 Leppa Berries per second.</td>
+				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
+				Caterpie: <span id="caterpie">0</span><br />
+				Cost: <span id="caterpieCost">2500</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
+				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
+				Ekans: <span id="ekans">0</span><br />
+				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 10 Lum Berries per second</br></td>
+				<td><img src="Images/vulpix.png", onClick="buyVulpix()">
+				Vulpix: <span id="vulpix">0</span><br />
+				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
 			</tr>
 		</table>
-		
+		</table></br></br>
+		<table>
+			<tr>
+				<td><img src="Images/spearow.png", onClick="buySpearow()">
+				Spearow: <span id="spearow">0</span><br />
+				Cost: <span id="spearowCost">8000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 1 Oran Berry per second,</br>
+				75 Lum Berries per second.</td>
+<!--				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
+				Caterpie: <span id="caterpie">0</span><br />
+				Cost: <span id="caterpieCost">2500</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
+				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
+				Ekans: <span id="ekans">0</span><br />
+				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 10 Lum Berries per second</br></td>
+				<td><img src="Images/vulpix.png", onClick="buyVulpix()">
+				Vulpix: <span id="vulpix">0</span><br />
+				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
+			</tr>
+		</table>
+		</table></br></br>
+		<table>
+			<tr>
+				<td><img src="Images/rattata.png", onClick="buyRattata()">
+				Rattata: <span id="rattata">0</span><br />
+				Cost: <span id="rattataCost">8000</span><span> Leppa Berries</span></br>
+				<strong>Gives:</strong> 1 Lum Berries per second,</br>
+				75 Leppa Berries per second.</td>
+				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
+				Caterpie: <span id="caterpie">0</span><br />
+				Cost: <span id="caterpieCost">2500</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
+				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
+				Ekans: <span id="ekans">0</span><br />
+				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 10 Lum Berries per second</br></td>
+				<td><img src="Images/vulpix.png", onClick="buyVulpix()">
+				Vulpix: <span id="vulpix">0</span><br />
+				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
+				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
+			</tr>
+		</table>
+-->
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 
