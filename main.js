@@ -23,6 +23,9 @@ var oranPS = 0;
 
 var oran = 0;
 var spearow = 0;
+var sandshrew = 0;
+var oddish = 0;
+var diglett = 0;
 
 function berryClick(number){
 	berries = berries + number;
@@ -54,7 +57,7 @@ function lumPerSec(){
 	document.getElementById("lumPS").innerHTML = lumPS;
 };
 function oranPerSec(){
-	oranPS = spearow;
+	oranPS = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50);
 	document.getElementById("oranPS").innerHTML = oranPS;
 };
 
@@ -166,7 +169,7 @@ function buyRattata(){
     document.getElementById('rattataCost').innerHTML = nextCost;
 };
 
-function buyCaterpie(){                                             //Cost won't update for some reason.
+function buyCaterpie(){
     var caterpieCost = Math.floor(2500 * Math.pow(1.5,caterpie));
     if(lum >= caterpieCost){
         caterpie = caterpie + 1;
@@ -174,7 +177,7 @@ function buyCaterpie(){                                             //Cost won't
         document.getElementById('caterpie').innerHTML = caterpie;
         document.getElementById('lum').innerHTML = lum;
     };
-    var nextCost = Math.floor(2500 * Math.pow(1.5,rattata));
+    var nextCost = Math.floor(2500 * Math.pow(1.5,caterpie));
     document.getElementById('caterpieCost').innerHTML = nextCost;
 };
 
@@ -214,6 +217,42 @@ function buySpearow(){
     document.getElementById('spearowCost').innerHTML = nextCost;
 };
 
+function buySandshrew(){
+    var sandshrewCost = Math.floor(2500 * Math.pow(1.5,sandshrew));
+    if(oran >= sandshrewCost){
+        sandshrew = sandshrew + 1;
+    	oran = oran - sandshrewCost;
+        document.getElementById('sandshrew').innerHTML = sandshrew;
+        document.getElementById('oran').innerHTML = oran;
+    };
+    var nextCost = Math.floor(2500 * Math.pow(1.5,sandshrew));
+    document.getElementById('sandshrewCost').innerHTML = nextCost;
+};
+
+function buyOddish(){
+    var oddishCost = Math.floor(4000 * Math.pow(1.5,oddish));
+    if(oran >= oddishCost){
+        oddish = oddish + 1;
+    	oran = oran - oddishCost;
+        document.getElementById('oddish').innerHTML = oddish;
+        document.getElementById('oran').innerHTML = oran;
+    };
+    var nextCost = Math.floor(4000 * Math.pow(1.5,oddish));
+    document.getElementById('oddishCost').innerHTML = nextCost;
+};
+
+function buyDiglett(){
+    var diglettCost = Math.floor(6000 * Math.pow(1.5,diglett));
+    if(oran >= diglettCost){
+        diglett = diglett + 1;
+    	oran = oran - diglettCost;
+        document.getElementById('diglett').innerHTML = diglett;
+        document.getElementById('oran').innerHTML = oran;
+    };
+    var nextCost = Math.floor(6000 * Math.pow(1.5,diglett));
+    document.getElementById('diglettCost').innerHTML = nextCost;
+};
+
 window.setInterval(function(){
 	berryClick(charmanders);
 	berryClick(bulbasaurs * 5);
@@ -239,4 +278,7 @@ window.setInterval(function(){
 	oranPerSec();
 	
 	oranClick(spearow);
+	oranClick(sandshrew * 5);
+	oranClick(oddish * 10);
+	oranClick(diglett * 50);
 }, 1000);
