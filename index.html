@@ -23,15 +23,13 @@ Code for later on.
 	<body>
 		</br>
 		<h1>Pokemon Clicker</h1>
-		<h3>Instructions: Click the different berries to get their respective berries.
+		<h3>Instructions: Click the yellow Sitrus Berry to get berries.</h3>
 		</h3>
-		<h3>
-		Then use those berries to buy pokemon by clicking on their picture.
-		</h3>
+		<h3>Then use those berries to buy pokemon by clicking on their picture.</h3>
 	</br></br>
-		<img src="Images/sitrus_berry.png", onClick="berryClick(1)">
+		<img src="Images/sitrus_berry.png", onClick="enigmaClick(1000)">
 	</br></br></br>
-		<table>
+		<table>               <!-- Sitrus Berries -->
 			<tr>
 				<td>
 					<span id="berries"></span><span> Sitrus Berries</span>
@@ -44,7 +42,7 @@ Code for later on.
 			</tr>
 		</table>
 	</br>
-		<table>
+		<table>               <!-- Leppa Berries -->
 			<tr>
 				<td>
 					<span id="leppas"></span><span> Leppa Berries</span>
@@ -57,7 +55,7 @@ Code for later on.
 			</tr>
 		</table>
 	</br>
-		<table>
+		<table>               <!-- Lum berries -->
 			<tr>
 				<td>
 					<span id="lum"></span><span> Lum Berries</span>
@@ -70,7 +68,7 @@ Code for later on.
 			</tr>
 		</table>
 	</br>
-		<table>
+		<table>               <!-- Oran Berries -->
 			<tr>
 				<td>
 					<span id="oran"></span><span> Oran Berries</span>
@@ -79,6 +77,19 @@ Code for later on.
 	<td></td>
 				<td>
 					<strong><span id="oranPS"></span><span>/s</span></strong>
+				</td>
+			</tr>
+		</table>
+	</br>
+		<table>               <!-- Enigma Berries -->
+			<tr>
+				<td>
+					<span id="enigma"></span><span> Enigma Berries</span>
+				</td>
+	<td></td>
+	<td></td>
+				<td>
+					<strong><span id="enigmaPS"></span><span>/s</span></strong>
 				</td>
 			</tr>
 		</table>
@@ -113,7 +124,7 @@ Code for later on.
 				75 Sitrus Berries per second</td>
 				<td><img src="Images/turtwig.png", onClick="buyTurtwig()">
 				Turtwig: <span id="turtwigs">0</span><br />
-				Cost: <span id="turtwigCost">2500</span><span> Leppa Berries</span></br>
+				Cost: <span id="turtwigCost">1000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 5 Leppa Berries per second.</td>
 				<td><img src="Images/weedle.png", onClick="buyWeedle()">
 				Weedle: <span id="weedle">0</span><br />
@@ -135,7 +146,7 @@ Code for later on.
 				75 Leppa Berries per second.</td>
 				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
 				Caterpie: <span id="caterpie">0</span><br />
-				Cost: <span id="caterpieCost">2500</span><span> Lum Berries</span></br>
+				Cost: <span id="caterpieCost">1000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
 				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
 				Ekans: <span id="ekans">0</span><br />
@@ -156,7 +167,7 @@ Code for later on.
 				75 Lum Berries per second.</td>
 				<td><img src="Images/sandshrew.png", onClick="buySandshrew()">
 				Sandshrew: <span id="sandshrew">0</span><br />
-				Cost: <span id="sandshrewCost">2500</span><span> Oran Berries</span></br>
+				Cost: <span id="sandshrewCost">1000</span><span> Oran Berries</span></br>
 				<strong>Gives:</strong> 5 Oran Berries per second</br></td>
 				<td><img src="Images/oddish.png", onClick="buyOddish()">
 				Oddish: <span id="oddish">0</span><br />
@@ -168,18 +179,18 @@ Code for later on.
 				<strong>Gives:</strong> 50 Oran Berries per second</br></td>
 			</tr>
 		</table></br></br>
-<!--		<table>           <!-- Enigma Berry Pokemon --> <!--
+		<table>               <!-- Enigma Berry Pokemon -->
 			<tr>
-				<td><img src="Images/rattata.png", onClick="buyRattata()">
-				Rattata: <span id="rattata">0</span><br />
-				Cost: <span id="rattataCost">8000</span><span> Leppa Berries</span></br>
-				<strong>Gives:</strong> 1 Lum Berries per second,</br>
-				75 Leppa Berries per second.</td>
-				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
-				Caterpie: <span id="caterpie">0</span><br />
-				Cost: <span id="caterpieCost">2500</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
-				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
+				<td><img src="Images/poliwag.png", onClick="buyPoliwag()">
+				Poliwag: <span id="poliwag">0</span><br />
+				Cost: <span id="poliwagCost">8000</span><span> Oran Berries</span></br>
+				<strong>Gives:</strong> 1 Enigma Berries per second,</br>
+				75 Oran Berries per second.</td>
+				<td><img src="Images/abra.png", onClick="buyAbra()">
+				Abra: <span id="abra">0</span><br />
+				Cost: <span id="abraCost">1000</span><span> Enigma Berries</span></br>
+				<strong>Gives:</strong> 5 Enigma Berries per second</br></td>
+<!--				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
 				Ekans: <span id="ekans">0</span><br />
 				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 10 Lum Berries per second</br></td>

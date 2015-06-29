@@ -20,12 +20,18 @@ var sitrusPS = 0;
 var leppaPS = 0;
 var lumPS = 0;
 var oranPS = 0;
+var enigmaPS = 0;
 
 var oran = 0;
 var spearow = 0;
 var sandshrew = 0;
 var oddish = 0;
 var diglett = 0;
+
+var enigma = 0;
+var poliwag = 0;
+var abra = 0;
+var machop = 0;
 
 function berryClick(number){
 	berries = berries + number;
@@ -43,6 +49,10 @@ function oranClick(number){
 	oran = oran + number;
 	document.getElementById("oran").innerHTML = oran;
 };
+function enigmaClick(number){
+	enigma = enigma + number;
+	document.getElementById("enigma").innerHTML = enigma;
+};
 
 function sitrusPerSec(){
 	sitrusPS = charmanders + (bulbasaurs * 5) + (squirtles * 10) + (cookies * 50) + (piplups * 75);
@@ -57,8 +67,12 @@ function lumPerSec(){
 	document.getElementById("lumPS").innerHTML = lumPS;
 };
 function oranPerSec(){
-	oranPS = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50);
+	oranPS = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50) + (poliwag * 75);
 	document.getElementById("oranPS").innerHTML = oranPS;
+};
+function enigmaPerSec(){
+	enigmaPS = poliwag + (abra * 5);
+	document.getElementById("enigmaPS").innerHTML = enigmaPS;
 };
 
 function buyCharmander(){
@@ -122,14 +136,14 @@ function buyPiplup(){
 };
 
 function buyTurtwig(){
-    var turtwigCost = Math.floor(2500 * Math.pow(1.5,turtwigs));
+    var turtwigCost = Math.floor(1000 * Math.pow(1.5,turtwigs));
     if(leppas >= turtwigCost){
         turtwigs = turtwigs + 1;
     	leppas = leppas - turtwigCost;
         document.getElementById('turtwigs').innerHTML = turtwigs;
         document.getElementById('leppas').innerHTML = leppas;
     };
-    var nextCost = Math.floor(2500 * Math.pow(1.5,turtwigs));
+    var nextCost = Math.floor(1000 * Math.pow(1.5,turtwigs));
     document.getElementById('turtwigCost').innerHTML = nextCost;
 };
 
@@ -170,14 +184,14 @@ function buyRattata(){
 };
 
 function buyCaterpie(){
-    var caterpieCost = Math.floor(2500 * Math.pow(1.5,caterpie));
+    var caterpieCost = Math.floor(1000 * Math.pow(1.5,caterpie));
     if(lum >= caterpieCost){
         caterpie = caterpie + 1;
     	lum = lum - caterpieCost;
         document.getElementById('caterpie').innerHTML = caterpie;
         document.getElementById('lum').innerHTML = lum;
     };
-    var nextCost = Math.floor(2500 * Math.pow(1.5,caterpie));
+    var nextCost = Math.floor(1000 * Math.pow(1.5,caterpie));
     document.getElementById('caterpieCost').innerHTML = nextCost;
 };
 
@@ -218,14 +232,14 @@ function buySpearow(){
 };
 
 function buySandshrew(){
-    var sandshrewCost = Math.floor(2500 * Math.pow(1.5,sandshrew));
+    var sandshrewCost = Math.floor(1000 * Math.pow(1.5,sandshrew));
     if(oran >= sandshrewCost){
         sandshrew = sandshrew + 1;
     	oran = oran - sandshrewCost;
         document.getElementById('sandshrew').innerHTML = sandshrew;
         document.getElementById('oran').innerHTML = oran;
     };
-    var nextCost = Math.floor(2500 * Math.pow(1.5,sandshrew));
+    var nextCost = Math.floor(1000 * Math.pow(1.5,sandshrew));
     document.getElementById('sandshrewCost').innerHTML = nextCost;
 };
 
@@ -253,6 +267,42 @@ function buyDiglett(){
     document.getElementById('diglettCost').innerHTML = nextCost;
 };
 
+function buyPoliwag(){
+    var poliwagCost = Math.floor(8000 * Math.pow(1.5,poliwag));
+    if(oran >= poliwagCost){
+        poliwag = poliwag + 1;
+    	oran = oran - poliwagCost;
+        document.getElementById('poliwag').innerHTML = poliwag;
+        document.getElementById('oran').innerHTML = oran;
+    };
+    var nextCost = Math.floor(8000 * Math.pow(1.5,poliwag));
+    document.getElementById('poliwagCost').innerHTML = nextCost;
+};
+
+function buyAbra(){
+    var abraCost = Math.floor(1000 * Math.pow(1.5,abra));
+    if(enigma >= abraCost){
+        abra = abra + 1;
+    	enigma = enigma - abraCost;
+        document.getElementById('abra').innerHTML = abra;
+        document.getElementById('enigma').innerHTML = enigma;
+    };
+    var nextCost = Math.floor(1000 * Math.pow(1.5,abra));
+    document.getElementById('abraCost').innerHTML = nextCost;
+};
+
+function buyMachop(){
+    var machopCost = Math.floor(4000 * Math.pow(1.5,machop));
+    if(enigma >= machopCost){
+        machop = machop + 1;
+    	enigma = enigma - machopCost;
+        document.getElementById('machop').innerHTML = machop;
+        document.getElementById('enigma').innerHTML = enigma;
+    };
+    var nextCost = Math.floor(4000 * Math.pow(1.5,machop));
+    document.getElementById('machopCost').innerHTML = nextCost;
+};
+
 window.setInterval(function(){
 	berryClick(charmanders);
 	berryClick(bulbasaurs * 5);
@@ -276,9 +326,15 @@ window.setInterval(function(){
 	leppaPerSec();
 	lumPerSec();
 	oranPerSec();
+	enigmaPerSec();
 	
 	oranClick(spearow);
 	oranClick(sandshrew * 5);
 	oranClick(oddish * 10);
 	oranClick(diglett * 50);
+	oranClick(poliwag * 75);
+	
+	enigmaClick(poliwag);
+	enigmaClick(abra * 5);
+	enigmaClick(machop * 10);
 }, 1000);
