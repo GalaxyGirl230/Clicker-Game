@@ -32,7 +32,7 @@ Code for later on.
 		<table>               <!-- Sitrus Berries -->
 			<tr>
 				<td>
-					<span id="berries"></span><span> Sitrus Berries</span>
+					<span id="sitrusCount"></span><span> Sitrus Berries</span>
 				</td>
 	<td></td>
 	<td></td>
@@ -45,7 +45,7 @@ Code for later on.
 		<table>               <!-- Leppa Berries -->
 			<tr>
 				<td>
-					<span id="leppas"></span><span> Leppa Berries</span>
+					<span id="leppaCount"></span><span> Leppa Berries</span>
 				</td>
 	<td></td>
 	<td></td>
@@ -58,7 +58,7 @@ Code for later on.
 		<table>               <!-- Lum berries -->
 			<tr>
 				<td>
-					<span id="lum"></span><span> Lum Berries</span>
+					<span id="lumCount"></span><span> Lum Berries</span>
 				</td>
 	<td></td>
 	<td></td>
@@ -71,7 +71,7 @@ Code for later on.
 		<table>               <!-- Oran Berries -->
 			<tr>
 				<td>
-					<span id="oran"></span><span> Oran Berries</span>
+					<span id="oranCount"></span><span> Oran Berries</span>
 				</td>
 	<td></td>
 	<td></td>
@@ -84,7 +84,7 @@ Code for later on.
 		<table>               <!-- Enigma Berries -->
 			<tr>
 				<td>
-					<span id="enigma"></span><span> Enigma Berries</span>
+					<span id="enigmaCount"></span><span> Enigma Berries</span>
 				</td>
 	<td></td>
 	<td></td>
@@ -96,21 +96,21 @@ Code for later on.
 	</br></br></br>
 		<table>               <!-- Sitrus Berry Pokemon -->
 			<tr>
-				<td><img src="Images/charmander.png", onClick="buyCharmander()">
-				Charmander: <span id="charmanders">0</span><br />
+				<td><img src="Images/charmander.png", onClick='buyPokemon("charmander")'>
+				Charmander: <span id="charmanderCount">0</span><br />
 				Cost: <span id="charmanderCost">10</span><span> Sitrus Berries</span></br>
 				<strong>Gives:</strong> 1 Sitrus Berry per second.</td>
 				
-				<td><img src="Images/bulbasaur.png", onClick="buyBulbasaur()">
-				Bulbasaur: <span id="bulbasaurs">0</span><br />
+				<td><img src="Images/bulbasaur.png", onClick='buyPokemon("bulbasaur")'>
+				Bulbasaur: <span id="bulbasaurCount">0</span><br />
 				Cost: <span id="bulbasaurCost">50</span><span> Sitrus Berries</span></br>
 				<strong>Gives:</strong> 5 Sitrus Berries per second.</td>
-				<td><img src="Images/squirtle.png", onClick="buySquirtle()">
-				Squirtle: <span id="squirtles">0</span><br />
+				<td><img src="Images/squirtle.png", onClick='buyPokemon("squirtle")'>
+				Squirtle: <span id="squirtleCount">0</span><br />
 				Cost: <span id="squirtleCost">100</span><span> Sitrus Berries</span></br>
 				<strong>Gives:</strong> 10 Sitrus Berries per second.</td>
-				<td><img src="Images/pikachu.png", onClick="buyPikachu()">
-				Pikachu: <span id="pikachus">0</span><br />
+				<td><img src="Images/pikachu.png", onClick='buyPokemon("pikachu")'>
+				Pikachu: <span id="pikachuCount">0</span><br />
 				Cost: <span id="pikachuCost">500</span><span> Sitrus Berries</span></br>
 				<strong>Gives:</strong> 50 Sitrus Berries per second.</td>
 			</tr>
@@ -118,20 +118,20 @@ Code for later on.
 		<table>               <!-- Leppa Berry Pokemon -->
 			<tr>
 				<td><img src="Images/piplup.png", onClick="buyPiplup()">
-				Piplup: <span id="piplups">0</span><br />
+				Piplup: <span id="piplupCount">0</span><br />
 				Cost: <span id="piplupCost">1000</span><span> Sitrus Berries</span></br>
 				<strong>Gives:</strong> 1 Leppa Berry per second,</br>
 				75 Sitrus Berries per second</td>
 				<td><img src="Images/turtwig.png", onClick="buyTurtwig()">
-				Turtwig: <span id="turtwigs">0</span><br />
+				Turtwig: <span id="turtwigCount">0</span><br />
 				Cost: <span id="turtwigCost">1000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 5 Leppa Berries per second.</td>
 				<td><img src="Images/weedle.png", onClick="buyWeedle()">
-				Weedle: <span id="weedle">0</span><br />
+				Weedle: <span id="weedlCount">0</span><br />
 				Cost: <span id="weedleCost">4000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 10 Leppa Berries per second.</td>
 				<td><img src="Images/pidgey.png", onClick="buyPidgey()">
-				Pidgey: <span id="pidgey">0</span><br />
+				Pidgey: <span id="pidgeyCount">0</span><br />
 				Cost: <span id="pidgeyCost">6000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 50 Leppa Berries per second</br></td>
 
@@ -140,20 +140,20 @@ Code for later on.
 		<table>               <!-- Lum Berry Pokemon -->
 			<tr>
 				<td><img src="Images/rattata.png", onClick="buyRattata()">
-				Rattata: <span id="rattata">0</span><br />
+				Rattata: <span id="rattataCount">0</span><br />
 				Cost: <span id="rattataCost">8000</span><span> Leppa Berries</span></br>
 				<strong>Gives:</strong> 1 Lum Berries per second,</br>
 				75 Leppa Berries per second.</td>
 				<td><img src="Images/caterpie.jpg", onClick="buyCaterpie()">
-				Caterpie: <span id="caterpie">0</span><br />
+				Caterpie: <span id="caterpieCount">0</span><br />
 				Cost: <span id="caterpieCost">1000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
 				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
-				Ekans: <span id="ekans">0</span><br />
+				Ekans: <span id="ekansCount">0</span><br />
 				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 10 Lum Berries per second</br></td>
 				<td><img src="Images/vulpix.png", onClick="buyVulpix()">
-				Vulpix: <span id="vulpix">0</span><br />
+				Vulpix: <span id="vulpixCount">0</span><br />
 				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
 			</tr>
@@ -161,20 +161,20 @@ Code for later on.
 		<table>               <!-- Oran Berry Pokemon -->
 			<tr>
 				<td><img src="Images/spearow.jpg", onClick="buySpearow()">
-				Spearow: <span id="spearow">0</span><br />
+				Spearow: <span id="spearowCount">0</span><br />
 				Cost: <span id="spearowCost">8000</span><span> Lum Berries</span></br>
 				<strong>Gives:</strong> 1 Oran Berry per second,</br>
 				75 Lum Berries per second.</td>
 				<td><img src="Images/sandshrew.png", onClick="buySandshrew()">
-				Sandshrew: <span id="sandshrew">0</span><br />
+				Sandshrew: <span id="sandshrewCount">0</span><br />
 				Cost: <span id="sandshrewCost">1000</span><span> Oran Berries</span></br>
 				<strong>Gives:</strong> 5 Oran Berries per second</br></td>
 				<td><img src="Images/oddish.png", onClick="buyOddish()">
-				Oddish: <span id="oddish">0</span><br />
+				Oddish: <span id="oddishCount">0</span><br />
 				Cost: <span id="oddishCost">4000</span><span> Oran Berries</span></br>
 				<strong>Gives:</strong> 10 Oran	Berries per second</br></td>
 				<td><img src="Images/diglett.png", onClick="buyDiglett()">
-				Diglett: <span id="diglett">0</span><br />
+				Diglett: <span id="diglettCount">0</span><br />
 				Cost: <span id="diglettCost">6000</span><span> Oran Berries</span></br>
 				<strong>Gives:</strong> 50 Oran Berries per second</br></td>
 			</tr>
@@ -182,12 +182,12 @@ Code for later on.
 		<table>               <!-- Enigma Berry Pokemon -->
 			<tr>
 				<td><img src="Images/poliwag.png", onClick="buyPoliwag()">
-				Poliwag: <span id="poliwag">0</span><br />
+				Poliwag: <span id="poliwagCount">0</span><br />
 				Cost: <span id="poliwagCost">8000</span><span> Oran Berries</span></br>
 				<strong>Gives:</strong> 1 Enigma Berries per second,</br>
 				75 Oran Berries per second.</td>
 				<td><img src="Images/abra.png", onClick="buyAbra()">
-				Abra: <span id="abra">0</span><br />
+				Abra: <span id="abraCount">0</span><br />
 				Cost: <span id="abraCost">1000</span><span> Enigma Berries</span></br>
 				<strong>Gives:</strong> 5 Enigma Berries per second</br></td>
 <!--				<td><img src="Images/ekans.jpg", onClick="buyEkans()">
