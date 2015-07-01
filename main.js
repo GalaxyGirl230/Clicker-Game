@@ -56,27 +56,181 @@ var gameData = {
                 sitrus: 10
             }
         },
-        pikachu: 0,
-        piplup: 0,
-        turtwig: 0,
-        weedle: 0,
-        pidgey: 0,
-        rattata: 0,
-        caterpie: 0,
-        ekans: 0,
-        vulpix: 0,
-        spearow: 0,
-        sandshrew: 0,
-        oddish: 0,
-        diglett: 0,
-        poliwag: 0,
-        abra: 0
+        pikachu: {
+			count: 0,
+			cost: {
+				num:500,
+				power: 1.5,
+				berryType: "sitrus"
+			},
+			gives: {
+				sitrus: 50
+			}
+		},
+        piplup: {
+			count: 0,
+			cost: {
+				num:1000,
+				power: 1.5,
+				berryType: "sitrus"
+			},
+			gives: {
+				sitrus: 75,
+				leppa: 1
+			}
+		},
+        turtwig: {
+			count: 0,
+			cost: {
+				num:1000,
+				power: 1.5,
+				berryType: "leppa"
+			},
+			gives: {
+				leppa: 5
+			}
+		},
+        weedle: {
+			count: 0,
+			cost: {
+				num:4000,
+				power: 1.5,
+				berryType: "leppa"
+			},
+			gives: {
+				leppa: 10
+			}
+		},
+        pidgey: {
+			count: 0,
+			cost: {
+				num:6000,
+				power: 1.5,
+				berryType: "leppa"
+			},
+			gives: {
+				leppa: 50
+			}
+		},
+        rattata: {
+			count: 0,
+			cost: {
+				num: 8000,
+				power: 1.5,
+				berryType: "leppa"
+			},
+			gives: {
+				leppa: 75,
+				lum: 1
+			}
+		},
+        caterpie: {
+			count: 0,
+			cost: {
+				num: 1000,
+				power: 1.5,
+				berryType: "lum"
+			},
+			gives: {
+				lum: 5
+			}
+		},
+        ekans: {
+			count: 0,
+			cost: {
+				num: 4000,
+				power: 1.5,
+				berryType: "lum"
+			},
+			gives: {
+				lum: 10
+			}
+		},
+        vulpix: {
+			count: 0,
+			cost: {
+				num: 6000,
+				power: 1.5,
+				berryType: "lum"
+			},
+			gives: {
+				lum: 50
+			}
+		},
+        spearow: {
+			count: 0,
+			cost: {
+				num: 8000,
+				power: 1.5,
+				berryType: "lum"
+			},
+			gives: {
+				lum: 75,
+				oran: 1
+			}
+		},
+        sandshrew: {
+			count: 0,
+			cost: {
+				num: 1000,
+				power: 1.5,
+				berryType: "oran"
+			},
+			gives: {
+				oran: 5
+			}
+		},
+        oddish: {
+			count: 0,
+			cost: {
+				num: 4000,
+				power: 1.5,
+				berryType: "oran"
+			},
+			gives: {
+				oran: 10
+			}
+		},
+        diglett: {
+			count: 0,
+			cost: {
+				num: 6000,
+				power: 1.5,
+				berryType: "oran"
+			},
+			gives: {
+				oran: 50
+			}
+		},
+        poliwag: {
+			count: 0,
+			cost: {
+				num: 8000,
+				power: 1.5,
+				berryType: "oran"
+			},
+			gives: {
+				oran: 75,
+				enigma: 1
+			}
+		},
+        abra: {
+			count: 0,
+			cost: {
+				num: 4000,
+				power: 1.5,
+				berryType: "enigma"
+			},
+			gives: {
+				enigma: 5
+			}
+		}
     }
 };
 
 // User clicked on the berry
 function berryClick() {
-    gameData.berries.sitrus.count ++;
+    gameData.berries.sirtus.count ++;
     updateBerriesUI();
 }
 
@@ -119,7 +273,7 @@ function updatePerSecondCounts() {
     }
 }
 
-/*
+/*         Old Code
 function buyBulbasaur(){
     var bulbasaurCost = Math.floor(50 * Math.pow(1.3,bulbasaurs));
     if(gameData.berries.sitrus.count >= bulbasaurCost){
