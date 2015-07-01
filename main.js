@@ -1,87 +1,102 @@
-var berries = 0;
+
+var gameData = {
+    "berries": {
+        "sitrus": {
+            "count": 0,
+            "perSec": 0
+        },
+        "leppa": {
+            "count": 0,
+            "perSec": 0
+        },
+        "lum": {
+            "count": 0,
+            "perSec": 0
+        },
+        "oran": {
+            "count": 0,
+            "perSec": 0
+        },
+        "enigma": {
+            "count": 0,
+            "perSec": 0
+        }
+    }
+};
+
 var charmanders = 0;
 var bulbasaurs = 0;
 var squirtles = 0;
-var cookies = 0; //this is really Pikachu, but the variable "pikachu" wasn't working for some reason, so I changed it to cookies.
+var pikachus = 0;
 var piplups = 0;
 
-var leppas = 0;
 var turtwigs = 0;
 var weedle = 0;
 var pidgey = 0;
 
-var lum = 0;
 var rattata = 0;
 var ekans = 0;
 var caterpie = 0;
 var vulpix = 0;
 
-var sitrusPS = 0;
-var leppaPS = 0;
-var lumPS = 0;
-var oranPS = 0;
-var enigmaPS = 0;
-
-var oran = 0;
 var spearow = 0;
 var sandshrew = 0;
 var oddish = 0;
 var diglett = 0;
 
-var enigma = 0;
 var poliwag = 0;
 var abra = 0;
 var machop = 0;
 
 function berryClick(number){
-	berries = berries + number;
-	document.getElementById("berries").innerHTML = berries;
+	gameData.berries.sitrus.count = gameData.berries.sitrus.count + number;
+	document.getElementById("berries").innerHTML = gameData.berries.sitrus.count;
 };
 function leppaClick(number){
-	leppas = leppas + number;
-	document.getElementById("leppas").innerHTML = leppas;
+	gameData.berries.leppa.count = gameData.berries.leppa.count + number;
+	document.getElementById("leppas").innerHTML = gameData.berries.leppa.count;
 };
 function lumClick(number){
-	lum = lum + number;
-	document.getElementById("lum").innerHTML = lum;
+	gameData.berries.lum.count = gameData.berries.lum.count + number;
+	document.getElementById("lum").innerHTML = gameData.berries.lum.count;
 };
 function oranClick(number){
-	oran = oran + number;
-	document.getElementById("oran").innerHTML = oran;
+	gameData.berries.oran.count = gameData.berries.oran.count + number;
+	document.getElementById("oran").innerHTML = gameData.berries.oran.count;
 };
 function enigmaClick(number){
-	enigma = enigma + number;
-	document.getElementById("enigma").innerHTML = enigma;
+	gameData.berries.enigma.count = gameData.berries.enigma.count + number;
+	document.getElementById("enigma").innerHTML = gameData.berries.enigma.count;
 };
 
 function sitrusPerSec(){
-	sitrusPS = charmanders + (bulbasaurs * 5) + (squirtles * 10) + (cookies * 50) + (piplups * 75);
-	document.getElementById("sitrusPS").innerHTML = sitrusPS;
+	gameData.berries.sitrus.perSec = charmanders + (bulbasaurs * 5) + (squirtles * 10) + (pikachus * 50) + (piplups * 75);
+	document.getElementById("sitrusPS").innerHTML = gameData.berries.sitrus.perSec;
 };
 function leppaPerSec(){
-	leppaPS = piplups + (turtwigs * 5) + (weedle * 10) + (pidgey * 50) + (rattata * 75);
-	document.getElementById("leppaPS").innerHTML = leppaPS;
+	gameData.berries.leppa.perSec = piplups + (turtwigs * 5) + (weedle * 10) + (pidgey * 50) + (rattata * 75);
+	document.getElementById("leppaPS").innerHTML = gameData.berries.leppa.perSec;
 };
 function lumPerSec(){
-	lumPS = rattata + (caterpie * 5) + (ekans * 10) + (vulpix * 50) + (spearow * 75);
-	document.getElementById("lumPS").innerHTML = lumPS;
+	gameData.berries.lum.perSec = rattata + (caterpie * 5) + (ekans * 10) + (vulpix * 50) + (spearow * 75);
+	document.getElementById("lumPS").innerHTML = gameData.berries.lum.perSec;
 };
 function oranPerSec(){
-	oranPS = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50) + (poliwag * 75);
-	document.getElementById("oranPS").innerHTML = oranPS;
+	gameData.berries.oran.perSec = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50) + (poliwag * 75);
+	document.getElementById("oranPS").innerHTML = gameData.berries.oran.perSec;
 };
 function enigmaPerSec(){
-	enigmaPS = poliwag + (abra * 5);
-	document.getElementById("enigmaPS").innerHTML = enigmaPS;
+	gameData.berries.enigma.perSec = poliwag + (abra * 5);
+	document.getElementById("enigmaPS").innerHTML = gameData.berries.enigma.perSec;
 };
 
 function buyCharmander(){
     var charmanderCost = Math.floor(10 * Math.pow(1.1,charmanders));     //works out the cost of this charmander
-    if(berries >= charmanderCost){                                   //checks that the player can afford the charmander
+    if(gameData.berries.sitrus.count >= charmanderCost){                                   //checks that the player can afford the charmander
         charmanders = charmanders + 1;                                   //increases number of charmanders
-    	berries = berries - charmanderCost;                          //removes the berries spent
+        gameData.berries.sitrus.count = gameData.berries.sitrus.count - charmanderCost;                          //removes the berries spent
         document.getElementById('charmanders').innerHTML = charmanders;  //updates the number of charmanders for the user
-        document.getElementById('berries').innerHTML = berries;  //updates the number of berries for the user
+        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;  //updates the number of berries for the user
     };
     var nextCost = Math.floor(10 * Math.pow(1.1,charmanders));       //works out the cost of the next charmander
     document.getElementById('charmanderCost').innerHTML = nextCost;  //updates the charmander cost for the user
@@ -89,11 +104,11 @@ function buyCharmander(){
 
 function buyBulbasaur(){
     var bulbasaurCost = Math.floor(50 * Math.pow(1.3,bulbasaurs));
-    if(berries >= bulbasaurCost){
+    if(gameData.berries.sitrus.count >= bulbasaurCost){
         bulbasaurs = bulbasaurs + 1;
-    	berries = berries - bulbasaurCost;
+        gameData.berries.sitrus.count = gameData.berries.sitrus.count - bulbasaurCost;
         document.getElementById('bulbasaurs').innerHTML = bulbasaurs;
-        document.getElementById('berries').innerHTML = berries;
+        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;
     };
     var nextCost = Math.floor(50 * Math.pow(1.3,bulbasaurs));
     document.getElementById('bulbasaurCost').innerHTML = nextCost;
@@ -101,35 +116,35 @@ function buyBulbasaur(){
 
 function buySquirtle(){
     var squirtleCost = Math.floor(100 * Math.pow(1.5,squirtles));
-    if(berries >= squirtleCost){
+    if(gameData.berries.sitrus.count >= squirtleCost){
         squirtles = squirtles + 1;
-    	berries = berries - squirtleCost;
+        gameData.berries.sitrus.count = gameData.berries.sitrus.count - squirtleCost;
         document.getElementById('squirtles').innerHTML = squirtles;
-        document.getElementById('berries').innerHTML = berries;
+        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;
     };
     var nextCost = Math.floor(100 * Math.pow(1.5,squirtles));
     document.getElementById('squirtleCost').innerHTML = nextCost;
 };
 
-function buyCookie(){
-    var cookieCost = Math.floor(500 * Math.pow(1.5,cookies));
-    if(berries >= cookieCost){
-        cookies = cookies + 1;
-    	berries = berries - cookieCost;
-        document.getElementById('cookies').innerHTML = cookies;
-        document.getElementById('berries').innerHTML = berries;
+function buyPikachu(){
+    var pikachuCost = Math.floor(500 * Math.pow(1.5,pikachus));
+    if(gameData.berries.sitrus.count >= pikachuCost){
+        pikachus = pikachus + 1;
+        gameData.berries.sitrus.count = gameData.berries.sitrus.count - pikachuCost;
+        document.getElementById('pikachus').innerHTML = pikachus;
+        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;
     };
-    var nextCost = Math.floor(500 * Math.pow(1.5,cookies));
-    document.getElementById('cookieCost').innerHTML = nextCost;
+    var nextCost = Math.floor(500 * Math.pow(1.5,pikachus));
+    document.getElementById('pikachuCost').innerHTML = nextCost;
 };
 
 function buyPiplup(){
     var piplupCost = Math.floor(1000 * Math.pow(1.5,piplups));
-    if(berries >= piplupCost){
+    if(gameData.berries.sitrus.count >= piplupCost){
         piplups = piplups + 1;
-    	berries = berries - piplupCost;
+        gameData.berries.sitrus.count = gameData.berries.sitrus.count - piplupCost;
         document.getElementById('piplups').innerHTML = piplups;
-        document.getElementById('berries').innerHTML = berries;
+        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;
     };
     var nextCost = Math.floor(1000 * Math.pow(1.5,piplups));
     document.getElementById('piplupCost').innerHTML = nextCost;
@@ -137,11 +152,11 @@ function buyPiplup(){
 
 function buyTurtwig(){
     var turtwigCost = Math.floor(1000 * Math.pow(1.5,turtwigs));
-    if(leppas >= turtwigCost){
+    if(gameData.berries.leppa.count >= turtwigCost){
         turtwigs = turtwigs + 1;
-    	leppas = leppas - turtwigCost;
+    	gameData.berries.leppa.count = gameData.berries.leppa.count - turtwigCost;
         document.getElementById('turtwigs').innerHTML = turtwigs;
-        document.getElementById('leppas').innerHTML = leppas;
+        document.getElementById('leppas').innerHTML = gameData.berries.leppa.count;
     };
     var nextCost = Math.floor(1000 * Math.pow(1.5,turtwigs));
     document.getElementById('turtwigCost').innerHTML = nextCost;
@@ -149,11 +164,11 @@ function buyTurtwig(){
 
 function buyWeedle(){
     var weedleCost = Math.floor(4000 * Math.pow(1.5,weedle));
-    if(leppas >= weedleCost){
+    if(gameData.berries.leppa.count >= weedleCost){
         weedle = weedle + 1;
-    	leppas = leppas - weedleCost;
+    	gameData.berries.leppa.count = gameData.berries.leppa.count - weedleCost;
         document.getElementById('weedle').innerHTML = weedle;
-        document.getElementById('leppas').innerHTML = leppas;
+        document.getElementById('leppas').innerHTML = gameData.berries.leppa.count;
     };
     var nextCost = Math.floor(4000 * Math.pow(1.5,weedle));
     document.getElementById('weedleCost').innerHTML = nextCost;
@@ -161,11 +176,11 @@ function buyWeedle(){
 
 function buyPidgey(){
     var pidgeyCost = Math.floor(6000 * Math.pow(1.5,pidgey));
-    if(leppas >= pidgeyCost){
+    if(gameData.berries.leppa.count >= pidgeyCost){
         pidgey = pidgey + 1;
-    	leppas = leppas - pidgeyCost;
+    	gameData.berries.leppa.count = gameData.berries.leppa.count - pidgeyCost;
         document.getElementById('pidgey').innerHTML = pidgey;
-        document.getElementById('leppas').innerHTML = leppas;
+        document.getElementById('leppas').innerHTML = gameData.berries.leppa.count;
     };
     var nextCost = Math.floor(6000 * Math.pow(1.5,pidgey));
     document.getElementById('pidgeyCost').innerHTML = nextCost;
@@ -173,11 +188,11 @@ function buyPidgey(){
 
 function buyRattata(){
     var rattataCost = Math.floor(8000 * Math.pow(1.5,rattata));
-    if(leppas >= rattataCost){
+    if(gameData.berries.leppa.count >= rattataCost){
         rattata = rattata + 1;
-    	leppas = leppas - rattataCost;
+    	gameData.berries.leppa.count = gameData.berries.leppa.count - rattataCost;
         document.getElementById('rattata').innerHTML = rattata;
-        document.getElementById('leppas').innerHTML = leppas;
+        document.getElementById('leppas').innerHTML = gameData.berries.leppa.count;
     };
     var nextCost = Math.floor(8000 * Math.pow(1.5,rattata));
     document.getElementById('rattataCost').innerHTML = nextCost;
@@ -185,11 +200,11 @@ function buyRattata(){
 
 function buyCaterpie(){
     var caterpieCost = Math.floor(1000 * Math.pow(1.5,caterpie));
-    if(lum >= caterpieCost){
+    if(gameData.berries.lum.count >= caterpieCost){
         caterpie = caterpie + 1;
-    	lum = lum - caterpieCost;
+    	gameData.berries.lum.count = gameData.berries.lum.count - caterpieCost;
         document.getElementById('caterpie').innerHTML = caterpie;
-        document.getElementById('lum').innerHTML = lum;
+        document.getElementById('lum').innerHTML = gameData.berries.lum.count;
     };
     var nextCost = Math.floor(1000 * Math.pow(1.5,caterpie));
     document.getElementById('caterpieCost').innerHTML = nextCost;
@@ -197,11 +212,11 @@ function buyCaterpie(){
 
 function buyEkans(){
     var ekansCost = Math.floor(4000 * Math.pow(1.5,ekans));
-    if(lum >= ekansCost){
+    if(gameData.berries.lum.count >= ekansCost){
         ekans = ekans + 1;
-    	lum = lum - ekansCost;
+    	gameData.berries.lum.count = gameData.berries.lum.count - ekansCost;
         document.getElementById('ekans').innerHTML = ekans;
-        document.getElementById('lum').innerHTML = lum;
+        document.getElementById('lum').innerHTML = gameData.berries.lum.count;
     };
     var nextCost = Math.floor(4000 * Math.pow(1.5,ekans));
     document.getElementById('ekansCost').innerHTML = nextCost;
@@ -209,11 +224,11 @@ function buyEkans(){
 
 function buyVulpix(){
     var vulpixCost = Math.floor(6000 * Math.pow(1.5,vulpix));
-    if(lum >= vulpixCost){
+    if(gameData.berries.lum.count >= vulpixCost){
         vulpix = vulpix + 1;
-    	lum = lum - vulpixCost;
+    	gameData.berries.lum.count = gameData.berries.lum.count - vulpixCost;
         document.getElementById('vulpix').innerHTML = vulpix;
-        document.getElementById('lum').innerHTML = lum;
+        document.getElementById('lum').innerHTML = gameData.berries.lum.count;
     };
     var nextCost = Math.floor(6000 * Math.pow(1.5,vulpix));
     document.getElementById('vulpixCost').innerHTML = nextCost;
@@ -221,11 +236,11 @@ function buyVulpix(){
 
 function buySpearow(){
     var spearowCost = Math.floor(8000 * Math.pow(1.5,spearow));
-    if(lum >= spearowCost){
+    if(gameData.berries.lum.count >= spearowCost){
         spearow = spearow + 1;
-    	lum = lum - spearowCost;
+    	gameData.berries.lum.count = gameData.berries.lum.count - spearowCost;
         document.getElementById('spearow').innerHTML = spearow;
-        document.getElementById('lum').innerHTML = lum;
+        document.getElementById('lum').innerHTML = gameData.berries.lum.count;
     };
     var nextCost = Math.floor(8000 * Math.pow(1.5,spearow));
     document.getElementById('spearowCost').innerHTML = nextCost;
@@ -233,11 +248,11 @@ function buySpearow(){
 
 function buySandshrew(){
     var sandshrewCost = Math.floor(1000 * Math.pow(1.5,sandshrew));
-    if(oran >= sandshrewCost){
+    if(gameData.berries.oran.count >= sandshrewCost){
         sandshrew = sandshrew + 1;
-    	oran = oran - sandshrewCost;
+    	gameData.berries.oran.count = gameData.berries.oran.count - sandshrewCost;
         document.getElementById('sandshrew').innerHTML = sandshrew;
-        document.getElementById('oran').innerHTML = oran;
+        document.getElementById('oran').innerHTML = gameData.berries.oran.count;
     };
     var nextCost = Math.floor(1000 * Math.pow(1.5,sandshrew));
     document.getElementById('sandshrewCost').innerHTML = nextCost;
@@ -245,11 +260,11 @@ function buySandshrew(){
 
 function buyOddish(){
     var oddishCost = Math.floor(4000 * Math.pow(1.5,oddish));
-    if(oran >= oddishCost){
+    if(gameData.berries.oran.count >= oddishCost){
         oddish = oddish + 1;
-    	oran = oran - oddishCost;
+    	gameData.berries.oran.count = gameData.berries.oran.count - oddishCost;
         document.getElementById('oddish').innerHTML = oddish;
-        document.getElementById('oran').innerHTML = oran;
+        document.getElementById('oran').innerHTML = gameData.berries.oran.count;
     };
     var nextCost = Math.floor(4000 * Math.pow(1.5,oddish));
     document.getElementById('oddishCost').innerHTML = nextCost;
@@ -257,11 +272,11 @@ function buyOddish(){
 
 function buyDiglett(){
     var diglettCost = Math.floor(6000 * Math.pow(1.5,diglett));
-    if(oran >= diglettCost){
+    if(gameData.berries.oran.count >= diglettCost){
         diglett = diglett + 1;
-    	oran = oran - diglettCost;
+    	gameData.berries.oran.count = gameData.berries.oran.count - diglettCost;
         document.getElementById('diglett').innerHTML = diglett;
-        document.getElementById('oran').innerHTML = oran;
+        document.getElementById('oran').innerHTML = gameData.berries.oran.count;
     };
     var nextCost = Math.floor(6000 * Math.pow(1.5,diglett));
     document.getElementById('diglettCost').innerHTML = nextCost;
@@ -269,11 +284,11 @@ function buyDiglett(){
 
 function buyPoliwag(){
     var poliwagCost = Math.floor(8000 * Math.pow(1.5,poliwag));
-    if(oran >= poliwagCost){
+    if(gameData.berries.oran.count >= poliwagCost){
         poliwag = poliwag + 1;
-    	oran = oran - poliwagCost;
+    	gameData.berries.oran.count = gameData.berries.oran.count - poliwagCost;
         document.getElementById('poliwag').innerHTML = poliwag;
-        document.getElementById('oran').innerHTML = oran;
+        document.getElementById('oran').innerHTML = gameData.berries.oran.count;
     };
     var nextCost = Math.floor(8000 * Math.pow(1.5,poliwag));
     document.getElementById('poliwagCost').innerHTML = nextCost;
@@ -281,11 +296,11 @@ function buyPoliwag(){
 
 function buyAbra(){
     var abraCost = Math.floor(1000 * Math.pow(1.5,abra));
-    if(enigma >= abraCost){
+    if(gameData.berries.enigma.count >= abraCost){
         abra = abra + 1;
-    	enigma = enigma - abraCost;
+    	gameData.berries.enigma.count = gameData.berries.enigma.count - abraCost;
         document.getElementById('abra').innerHTML = abra;
-        document.getElementById('enigma').innerHTML = enigma;
+        document.getElementById('enigma').innerHTML = gameData.berries.enigma.count;
     };
     var nextCost = Math.floor(1000 * Math.pow(1.5,abra));
     document.getElementById('abraCost').innerHTML = nextCost;
@@ -293,11 +308,11 @@ function buyAbra(){
 
 function buyMachop(){
     var machopCost = Math.floor(4000 * Math.pow(1.5,machop));
-    if(enigma >= machopCost){
+    if(gameData.berries.enigma.count >= machopCost){
         machop = machop + 1;
-    	enigma = enigma - machopCost;
+    	gameData.berries.enigma.count = gameData.berries.enigma.count - machopCost;
         document.getElementById('machop').innerHTML = machop;
-        document.getElementById('enigma').innerHTML = enigma;
+        document.getElementById('enigma').innerHTML = gameData.berries.enigma.count;
     };
     var nextCost = Math.floor(4000 * Math.pow(1.5,machop));
     document.getElementById('machopCost').innerHTML = nextCost;
@@ -307,7 +322,7 @@ window.setInterval(function(){
 	berryClick(charmanders);
 	berryClick(bulbasaurs * 5);
 	berryClick(squirtles * 10);
-	berryClick(cookies * 50);
+	berryClick(pikachus * 50);
 	berryClick(piplups * 75);
 	
 	leppaClick(piplups);
