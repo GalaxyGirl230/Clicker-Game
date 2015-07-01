@@ -1,107 +1,125 @@
 
 var gameData = {
-    "berries": {
-        "sitrus": {
-            "count": 0,
-            "perSec": 0
+    berries: {
+        sitrus: {
+            count: 0,
+            perSec: 0
         },
-        "leppa": {
-            "count": 0,
-            "perSec": 0
+        leppa: {
+            count: 0,
+            perSec: 0
         },
-        "lum": {
-            "count": 0,
-            "perSec": 0
+        lum: {
+            count: 0,
+            perSec: 0
         },
-        "oran": {
-            "count": 0,
-            "perSec": 0
+        oran: {
+            count: 0,
+            perSec: 0
         },
-        "enigma": {
-            "count": 0,
-            "perSec": 0
+        enigma: {
+            count : 0,
+            perSec: 0
         }
+    },
+    pokemon: {
+        charmander: {
+            count: 0,
+            cost: {
+                num: 10,
+                power: 1.1,
+                berryType: "sitrus"
+            },
+            gives: {
+                sitrus: 1
+            }
+        },
+        bulbasaur: {
+            count: 0,
+            cost: {
+                num: 50,
+                power: 1.3,
+                berryType: "sitrus"
+            },
+            gives: {
+                sitrus: 5
+            }
+        },
+        squirtle: {
+            count: 0,
+            cost: {
+                num:100,
+                power: 1.5,
+                berryType: "sitrus"
+            },
+            gives: {
+                sitrus: 10
+            }
+        },
+        pikachu: 0,
+        piplup: 0,
+        turtwig: 0,
+        weedle: 0,
+        pidgey: 0,
+        rattata: 0,
+        caterpie: 0,
+        ekans: 0,
+        vulpix: 0,
+        spearow: 0,
+        sandshrew: 0,
+        oddish: 0,
+        diglett: 0,
+        poliwag: 0,
+        abra: 0
     }
 };
 
-var charmanders = 0;
-var bulbasaurs = 0;
-var squirtles = 0;
-var pikachus = 0;
-var piplups = 0;
+// User clicked on the berry
+function berryClick() {
+    gameData.berries.sitrus.count ++;
+    updateBerriesUI();
+}
 
-var turtwigs = 0;
-var weedle = 0;
-var pidgey = 0;
+// buy a pokemon
+function buyPokemon(pokemonType){
+    var berryType = gameData.pokemon[pokemonType].cost.berryType;  // get the type of berry being spent
+    var cost = pokemonCost(pokemonType);                     // get the cost in such berries
+    if( gameData.berries[berryType].count >= cost){          // if we have enough
+        gameData.pokemon[pokemonType].count ++;                     // increment the pokemon count
+        gameData.berries[berryType].count -= cost;           // subtract the berries spent
 
-var rattata = 0;
-var ekans = 0;
-var caterpie = 0;
-var vulpix = 0;
+        document.getElementById(pokemonType + 'Count').innerHTML = gameData.pokemon[pokemonType].count;  //updates the number of pokemon for the user
+    }
+    var nextCost = pokemonCost(pokemonType);                //works out the cost of the next pokemon
+    document.getElementById(pokemonType + 'Cost').innerHTML = nextCost;  //updates the pokemon cost for the user
 
-var spearow = 0;
-var sandshrew = 0;
-var oddish = 0;
-var diglett = 0;
+    updatePerSecondCounts();
+    updateBerriesUI();
+}
 
-var poliwag = 0;
-var abra = 0;
-var machop = 0;
+function pokemonCost(pokemonType){
+    var num = gameData.pokemon[pokemonType].cost.num;
+    var power = gameData.pokemon[pokemonType].cost.power;
+    var count = gameData.pokemon[pokemonType].count;
+    return Math.floor(num * Math.pow(power, count));
+}
 
-function berryClick(number){
-	gameData.berries.sitrus.count = gameData.berries.sitrus.count + number;
-	document.getElementById("berries").innerHTML = gameData.berries.sitrus.count;
-};
-function leppaClick(number){
-	gameData.berries.leppa.count = gameData.berries.leppa.count + number;
-	document.getElementById("leppas").innerHTML = gameData.berries.leppa.count;
-};
-function lumClick(number){
-	gameData.berries.lum.count = gameData.berries.lum.count + number;
-	document.getElementById("lum").innerHTML = gameData.berries.lum.count;
-};
-function oranClick(number){
-	gameData.berries.oran.count = gameData.berries.oran.count + number;
-	document.getElementById("oran").innerHTML = gameData.berries.oran.count;
-};
-function enigmaClick(number){
-	gameData.berries.enigma.count = gameData.berries.enigma.count + number;
-	document.getElementById("enigma").innerHTML = gameData.berries.enigma.count;
-};
+// figure out the per-second counts: call this after buying pokemon
+function updatePerSecondCounts() {
+    var perSecond = {};
+    for (var pokemonType in gameData.pokemon) {
+        for( var berryType in gameData.pokemon[pokemonType].gives ) {
+            if (! perSecond[berryType]) perSecond[berryType] = 0;
+            perSecond[berryType] += gameData.pokemon[pokemonType].gives[berryType] * gameData.pokemon[pokemonType].count;
+        }
+    }
 
-function sitrusPerSec(){
-	gameData.berries.sitrus.perSec = charmanders + (bulbasaurs * 5) + (squirtles * 10) + (pikachus * 50) + (piplups * 75);
-	document.getElementById("sitrusPS").innerHTML = gameData.berries.sitrus.perSec;
-};
-function leppaPerSec(){
-	gameData.berries.leppa.perSec = piplups + (turtwigs * 5) + (weedle * 10) + (pidgey * 50) + (rattata * 75);
-	document.getElementById("leppaPS").innerHTML = gameData.berries.leppa.perSec;
-};
-function lumPerSec(){
-	gameData.berries.lum.perSec = rattata + (caterpie * 5) + (ekans * 10) + (vulpix * 50) + (spearow * 75);
-	document.getElementById("lumPS").innerHTML = gameData.berries.lum.perSec;
-};
-function oranPerSec(){
-	gameData.berries.oran.perSec = spearow + (sandshrew * 5) + (oddish * 10) + (diglett * 50) + (poliwag * 75);
-	document.getElementById("oranPS").innerHTML = gameData.berries.oran.perSec;
-};
-function enigmaPerSec(){
-	gameData.berries.enigma.perSec = poliwag + (abra * 5);
-	document.getElementById("enigmaPS").innerHTML = gameData.berries.enigma.perSec;
-};
+    for (var berryType in perSecond) {
+        gameData.berries[berryType].perSec = perSecond[berryType];
+    }
+}
 
-function buyCharmander(){
-    var charmanderCost = Math.floor(10 * Math.pow(1.1,charmanders));     //works out the cost of this charmander
-    if(gameData.berries.sitrus.count >= charmanderCost){                                   //checks that the player can afford the charmander
-        charmanders = charmanders + 1;                                   //increases number of charmanders
-        gameData.berries.sitrus.count = gameData.berries.sitrus.count - charmanderCost;                          //removes the berries spent
-        document.getElementById('charmanders').innerHTML = charmanders;  //updates the number of charmanders for the user
-        document.getElementById('berries').innerHTML = gameData.berries.sitrus.count;  //updates the number of berries for the user
-    };
-    var nextCost = Math.floor(10 * Math.pow(1.1,charmanders));       //works out the cost of the next charmander
-    document.getElementById('charmanderCost').innerHTML = nextCost;  //updates the charmander cost for the user
-};
-
+/*
 function buyBulbasaur(){
     var bulbasaurCost = Math.floor(50 * Math.pow(1.3,bulbasaurs));
     if(gameData.berries.sitrus.count >= bulbasaurCost){
@@ -306,50 +324,20 @@ function buyAbra(){
     document.getElementById('abraCost').innerHTML = nextCost;
 };
 
-function buyMachop(){
-    var machopCost = Math.floor(4000 * Math.pow(1.5,machop));
-    if(gameData.berries.enigma.count >= machopCost){
-        machop = machop + 1;
-    	gameData.berries.enigma.count = gameData.berries.enigma.count - machopCost;
-        document.getElementById('machop').innerHTML = machop;
-        document.getElementById('enigma').innerHTML = gameData.berries.enigma.count;
-    };
-    var nextCost = Math.floor(4000 * Math.pow(1.5,machop));
-    document.getElementById('machopCost').innerHTML = nextCost;
-};
+*/
 
 window.setInterval(function(){
-	berryClick(charmanders);
-	berryClick(bulbasaurs * 5);
-	berryClick(squirtles * 10);
-	berryClick(pikachus * 50);
-	berryClick(piplups * 75);
-	
-	leppaClick(piplups);
-	leppaClick(turtwigs * 5);
-	leppaClick(weedle * 10);
-	leppaClick(pidgey * 50);
-	leppaClick(rattata * 75);
-	
-	lumClick(rattata);
-	lumClick(caterpie * 5);
-	lumClick(ekans * 10);
-	lumClick(vulpix * 50);
-	lumClick(spearow * 75);
-		
-	sitrusPerSec();
-	leppaPerSec();
-	lumPerSec();
-	oranPerSec();
-	enigmaPerSec();
-	
-	oranClick(spearow);
-	oranClick(sandshrew * 5);
-	oranClick(oddish * 10);
-	oranClick(diglett * 50);
-	oranClick(poliwag * 75);
-	
-	enigmaClick(poliwag);
-	enigmaClick(abra * 5);
-	enigmaClick(machop * 10);
+    for (var berryType in gameData.berries) {
+        gameData.berries[berryType].count += gameData.berries[berryType].perSec;
+    }
+
+    updateBerriesUI();
 }, 1000);
+
+// update the UI
+function updateBerriesUI() {
+    for (var berryType in gameData.berries) {
+        document.getElementById(berryType + "Count").innerHTML = gameData.berries[berryType].count;
+        document.getElementById(berryType + "PS").innerHTML = gameData.berries[berryType].perSec;
+    }
+}
