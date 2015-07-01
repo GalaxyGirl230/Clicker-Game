@@ -74,9 +74,6 @@ var gameData = {
     }
 };
 
-var machop = 0;
-
-
 // User clicked on the berry
 function berryClick() {
     gameData.berries.sitrus.count ++;
@@ -101,7 +98,10 @@ function buyPokemon(pokemonType){
 }
 
 function pokemonCost(pokemonType){
-    return Math.floor(gameData.pokemon[pokemonType].cost.num * Math.pow(gameData.pokemon[pokemonType].cost.power, gameData.pokemon[pokemonType].count));
+    var num = gameData.pokemon[pokemonType].cost.num;
+    var power = gameData.pokemon[pokemonType].cost.power;
+    var count = gameData.pokemon[pokemonType].count;
+    return Math.floor(num * Math.pow(power, count));
 }
 
 // figure out the per-second counts: call this after buying pokemon
@@ -324,17 +324,6 @@ function buyAbra(){
     document.getElementById('abraCost').innerHTML = nextCost;
 };
 
-function buyMachop(){
-    var machopCost = Math.floor(4000 * Math.pow(1.5,machop));
-    if(gameData.berries.enigma.count >= machopCost){
-        machop = machop + 1;
-    	gameData.berries.enigma.count = gameData.berries.enigma.count - machopCost;
-        document.getElementById('machop').innerHTML = machop;
-        document.getElementById('enigma').innerHTML = gameData.berries.enigma.count;
-    };
-    var nextCost = Math.floor(4000 * Math.pow(1.5,machop));
-    document.getElementById('machopCost').innerHTML = nextCost;
-};
 */
 
 window.setInterval(function(){
