@@ -190,11 +190,23 @@
     "abra": {
       "count": 0,
       "cost": {
-        "num": 4000,
+        "num": 1000,
         "power": 1.5,
         "berryType": "enigma"
       },
       "gives": {"enigma": 5}
+    },
+    "machop": {
+      "count": 0,
+      "cost": {
+        "num": 4000,
+        "power": 1.5,
+        "berryType": "enigma"
+      },
+      "gives": {
+        "enigma": 10
+      }
     }
+
   }
 }
