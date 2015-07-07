@@ -58,7 +58,7 @@ Code for later on.
 			</tr>
 			<!-- Enigma Berry Pokemon -->
 			<tr>
-				<td ng-repeat="pokemonType in ['poliwag', 'abra']" ng-include="'pokemonCell'"></td>
+				<td ng-repeat="pokemonType in ['poliwag', 'abra', 'machop']" ng-include="'pokemonCell'"></td>
 			</tr>
 		</table>
 
@@ -74,6 +74,10 @@ Code for later on.
 				per second.
 			</div>
 		</script>
+
+		<br/><br/><br/>
+
+		<img src="Images/reset.png" height='64' width='64' ng-click="resetGame()"/> Restart Game
 
 		<script src="bower_components/angular/angular.js"></script>
 		<script type="text/javascript" src="main.js"></script>
