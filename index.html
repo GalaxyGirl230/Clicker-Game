@@ -13,195 +13,71 @@ Code for later on.
 -->
 
 
-<html>
+<html ng-app="pokemonClickerApp">
 
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 		<title>Pokemon Clicker</title>
 	</head>
 
-	<body>
+	<body ng-controller="PokemonClickerCtrl">
 		</br>
 		<h1>Pokemon Clicker</h1>
 		<h3>Instructions: Click the yellow Sitrus Berry to get berries.</h3>
 		</h3>
 		<h3>Then use those berries to buy pokemon by clicking on their picture.</h3>
 	</br></br>
-		<img src="Images/sitrus_berry.png", onClick="berryClick(1)">
+		<img src="Images/sitrus_berry.png" ng-click="berryClick()">
 	</br></br></br>
 		<table>               <!-- Sitrus Berries -->
-			<tr>
-				<td>
-					<span id="sitrusCount"></span><span> Sitrus Berries</span>
-				</td>
-	<td></td>
-	<td></td>
-				<td>
-					<strong><span id="sitrusPS"></span><span>/s</span></strong>
-				</td>
-			</tr>
-		</table>
-	</br>
-		<table>               <!-- Leppa Berries -->
-			<tr>
-				<td>
-					<span id="leppaCount"></span><span> Leppa Berries</span>
-				</td>
-	<td></td>
-	<td></td>
-				<td>
-					<strong><span id="leppaPS"></span><span>/s</span></strong>
-				</td>
-			</tr>
-		</table>
-	</br>
-		<table>               <!-- Lum berries -->
-			<tr>
-				<td>
-					<span id="lumCount"></span><span> Lum Berries</span>
-				</td>
-	<td></td>
-	<td></td>
-				<td>
-					<strong><span id="lumPS"></span><span>/s</span></strong>
-				</td>
-			</tr>
-		</table>
-	</br>
-		<table>               <!-- Oran Berries -->
-			<tr>
-				<td>
-					<span id="oranCount"></span><span> Oran Berries</span>
-				</td>
-	<td></td>
-	<td></td>
-				<td>
-					<strong><span id="oranPS"></span><span>/s</span></strong>
-				</td>
-			</tr>
-		</table>
-	</br>
-		<table>               <!-- Enigma Berries -->
-			<tr>
-				<td>
-					<span id="enigmaCount"></span><span> Enigma Berries</span>
-				</td>
-	<td></td>
-	<td></td>
-				<td>
-					<strong><span id="enigmaPS"></span><span>/s</span></strong>
+			<tr ng-repeat="(berryName, berry) in gameData.berries">
+				<td>{{berry.count}} {{berryName | capitalize}}
+					<span ng-if="berry.count != 1">berries</span>
+					<span ng-if="berry.count == 1">berry</span>
+					{{berry.perSec}}/s
 				</td>
 			</tr>
 		</table>
 	</br></br></br>
-		<table>               <!-- Sitrus Berry Pokemon -->
+		<table>
+			<!-- Sitrus Berry Pokemon -->
 			<tr>
-				<td><img src="Images/charmander.png", onClick='buyPokemon("charmander")'>
-				Charmander: <span id="charmanderCount">0</span><br />
-				Cost: <span id="charmanderCost">10</span><span> Sitrus Berries</span></br>
-				<strong>Gives:</strong> 1 Sitrus Berry per second.</td>
-				
-				<td><img src="Images/bulbasaur.png", onClick='buyPokemon("bulbasaur")'>
-				Bulbasaur: <span id="bulbasaurCount">0</span><br />
-				Cost: <span id="bulbasaurCost">50</span><span> Sitrus Berries</span></br>
-				<strong>Gives:</strong> 5 Sitrus Berries per second.</td>
-				<td><img src="Images/squirtle.png", onClick='buyPokemon("squirtle")'>
-				Squirtle: <span id="squirtleCount">0</span><br />
-				Cost: <span id="squirtleCost">100</span><span> Sitrus Berries</span></br>
-				<strong>Gives:</strong> 10 Sitrus Berries per second.</td>
-				<td><img src="Images/pikachu.png", onClick='buyPokemon("pikachu")'>
-				Pikachu: <span id="pikachuCount">0</span><br />
-				Cost: <span id="pikachuCost">500</span><span> Sitrus Berries</span></br>
-				<strong>Gives:</strong> 50 Sitrus Berries per second.</td>
+				<td ng-repeat="pokemonType in ['charmander', 'bulbasaur', 'squirtle', 'pikachu']" ng-include="'pokemonCell'"></td>
 			</tr>
-		</table></br></br>
-		<table>               <!-- Leppa Berry Pokemon -->
+			 <!-- Leppa Berry Pokemon -->
 			<tr>
-				<td><img src="Images/piplup.png", onClick='buyPokemon("piplup")'>
-				Piplup: <span id="piplupCount">0</span><br />
-				Cost: <span id="piplupCost">1000</span><span> Sitrus Berries</span></br>
-				<strong>Gives:</strong> 1 Leppa Berry per second,</br>
-				75 Sitrus Berries per second</td>
-				<td><img src="Images/turtwig.png", onClick='buyPokemon("turtwig")'>
-				Turtwig: <span id="turtwigCount">0</span><br />
-				Cost: <span id="turtwigCost">1000</span><span> Leppa Berries</span></br>
-				<strong>Gives:</strong> 5 Leppa Berries per second.</td>
-				<td><img src="Images/weedle.png", onClick='buyPokemon("weedle")'>
-				Weedle: <span id="weedleCount">0</span><br />
-				Cost: <span id="weedleCost">4000</span><span> Leppa Berries</span></br>
-				<strong>Gives:</strong> 10 Leppa Berries per second.</td>
-				<td><img src="Images/pidgey.png", onClick='buyPokemon("pidgey")'>
-				Pidgey: <span id="pidgeyCount">0</span><br />
-				Cost: <span id="pidgeyCost">6000</span><span> Leppa Berries</span></br>
-				<strong>Gives:</strong> 50 Leppa Berries per second</br></td>
-
+				<td ng-repeat="pokemonType in ['piplup', 'turtwig', 'weedle', 'pidgey']" ng-include="'pokemonCell'"></td>
 			</tr>
-		</table></br></br>
-		<table>               <!-- Lum Berry Pokemon -->
+			<!-- Lum Berry Pokemon -->
 			<tr>
-				<td><img src="Images/rattata.png", onClick='buyPokemon("rattata")'>
-				Rattata: <span id="rattataCount">0</span><br />
-				Cost: <span id="rattataCost">8000</span><span> Leppa Berries</span></br>
-				<strong>Gives:</strong> 1 Lum Berries per second,</br>
-				75 Leppa Berries per second.</td>
-				<td><img src="Images/caterpie.png", onClick='buyPokemon("caterpie")'>
-				Caterpie: <span id="caterpieCount">0</span><br />
-				Cost: <span id="caterpieCost">1000</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 5 Lum Berries per second</br></td>
-				<td><img src="Images/ekans.png", onClick='buyPokemon("ekans")'>
-				Ekans: <span id="ekansCount">0</span><br />
-				Cost: <span id="ekansCost">4000</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 10 Lum Berries per second</br></td>
-				<td><img src="Images/vulpix.png", onClick='buyPokemon("vulpix")'>
-				Vulpix: <span id="vulpixCount">0</span><br />
-				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
+				<td ng-repeat="pokemonType in ['rattata', 'caterpie', 'ekans', 'vulpix']" ng-include="'pokemonCell'"></td>
 			</tr>
-		</table></br></br>
-		<table>               <!-- Oran Berry Pokemon -->
+			<!-- Oran Berry Pokemon -->
 			<tr>
-				<td><img src="Images/spearow.png", onClick='buyPokemon{"spearow")'>
-				Spearow: <span id="spearowCount">0</span><br />
-				Cost: <span id="spearowCost">8000</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 1 Oran Berry per second,</br>
-				75 Lum Berries per second.</td>
-				<td><img src="Images/sandshrew.png", onClick='buyPokemon("sandshrew")'>
-				Sandshrew: <span id="sandshrewCount">0</span><br />
-				Cost: <span id="sandshrewCost">1000</span><span> Oran Berries</span></br>
-				<strong>Gives:</strong> 5 Oran Berries per second</br></td>
-				<td><img src="Images/oddish.png", onClick='buyPokemon("oddish")'>
-				Oddish: <span id="oddishCount">0</span><br />
-				Cost: <span id="oddishCost">4000</span><span> Oran Berries</span></br>
-				<strong>Gives:</strong> 10 Oran	Berries per second</br></td>
-				<td><img src="Images/diglett.png", onClick='buyPokemon("diglett")'>
-				Diglett: <span id="diglettCount">0</span><br />
-				Cost: <span id="diglettCost">6000</span><span> Oran Berries</span></br>
-				<strong>Gives:</strong> 50 Oran Berries per second</br></td>
+				<td ng-repeat="pokemonType in ['spearow', 'sandshrew', 'oddish', 'diglett']" ng-include="'pokemonCell'"></td>
 			</tr>
-		</table></br></br>
-		<table>               <!-- Enigma Berry Pokemon -->
+			<!-- Enigma Berry Pokemon -->
 			<tr>
-				<td><img src="Images/poliwag.png", onClick='buyPokemon("poliwag")'>
-				Poliwag: <span id="poliwagCount">0</span><br />
-				Cost: <span id="poliwagCost">8000</span><span> Oran Berries</span></br>
-				<strong>Gives:</strong> 1 Enigma Berries per second,</br>
-				75 Oran Berries per second.</td>
-				<td><img src="Images/abra.png", onClick='buyPokemon("abra")'>
-				Abra: <span id="abraCount">0</span><br />
-				Cost: <span id="abraCost">1000</span><span> Enigma Berries</span></br>
-				<strong>Gives:</strong> 5 Enigma Berries per second</br></td>
-<				<td><img src="Images/machop.png", onClick='buyPokemon("machop")'>
-				Machop: <span id="machopCount">0</span><br />
-				Cost: <span id="machopCost">4000</span><span> Enigma Berries</span></br>
-				<strong>Gives:</strong> 10 Enigma Berries per second</br></td>
-				<td><img src="Images/.png", onClick="buyVulpix()">
-				Vulpix: <span id="vulpix">0</span><br />
-				Cost: <span id="vulpixCost">6000</span><span> Lum Berries</span></br>
-				<strong>Gives:</strong> 50 Lum Berries per second</br></td>
+				<td ng-repeat="pokemonType in ['poliwag', 'abra']" ng-include="'pokemonCell'"></td>
 			</tr>
 		</table>
--->
+
+		<script type="text/ng-template" id="pokemonCell">
+			<img ng-src="Images/{{pokemonType}}.png", ng-click="buyPokemon(pokemonType)">
+			{{pokemonType | capitalize}} {{gameData.pokemon[pokemonType].count}}<br />
+			Cost: {{gameData.pokemon[pokemonType].nextCost}} {{gameData.pokemon[pokemonType].cost.berryType}} berries<br>
+			<strong>Gives:</strong>
+			<div ng-repeat="(berryType, berryQty) in gameData.pokemon[pokemonType].gives">
+				{{berryQty}} {{berryType | capitalize}}
+				<span ng-if="berryQty > 1">berries</span>
+				<span ng-if="berryQty == 1">berry</span>
+				per second.
+			</div>
+		</script>
+
+		<script src="bower_components/angular/angular.js"></script>
 		<script type="text/javascript" src="main.js"></script>
+
 	</body>
 
 </html>
