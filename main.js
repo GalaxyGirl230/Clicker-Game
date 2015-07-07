@@ -20,6 +20,8 @@ var pokemonClickerApp = angular.module('pokemonClickerApp', [])
         $scope.gameData.pokemon[pokemonType].nextCost = pokemonCost(pokemonType);                //works out the cost of the next pokemon
 
         updatePerSecondCounts();
+
+        saveGameData(); // save in case you buy and close the browser
     }
 
     $scope.resetGame = function() {
@@ -30,6 +32,7 @@ var pokemonClickerApp = angular.module('pokemonClickerApp', [])
 
     function saveGameData() {
         if ($scope.gameData) {
+            $scope.gameData.saveTime = new Date().getTime();
             window.localStorage.setItem('pokemonGameData',JSON.stringify($scope.gameData));
         }
     }
@@ -76,6 +79,10 @@ var pokemonClickerApp = angular.module('pokemonClickerApp', [])
         var strData = window.localStorage.getItem('pokemonGameData');
         if( strData ) {
             $scope.gameData = JSON.parse(strData);
+            if( $scope.gameData.saveTime ) {
+                var secondsElapsed = Math.floor((new Date().getTime() - $scope.gameData.saveTime) / 1000);
+                click(secondsElapsed);
+            }
         }
     }
     // if we didn't get anything, then load the default
@@ -85,17 +92,21 @@ var pokemonClickerApp = angular.module('pokemonClickerApp', [])
 
     // click counts
     $interval(function() {
+        click(1);
+    }, 1000);
+
+    function click(seconds) {
         if ($scope.gameData) {
             for (var berryType in $scope.gameData.berries) {
-                $scope.gameData.berries[berryType].count += $scope.gameData.berries[berryType].perSec;
+                $scope.gameData.berries[berryType].count += ($scope.gameData.berries[berryType].perSec * seconds);
             }
         }
-    }, 1000);
+    }
 
     // save game data
     $interval(function() {
         saveGameData();
-    }, 3000);
+    }, 60000); // once per minute; we also save after you buy something
 
 })
 
