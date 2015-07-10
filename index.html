@@ -1,4 +1,4 @@
-<doctype!>
+<!doctype>
 
 <!--
 Zak Clough
@@ -58,13 +58,21 @@ Code for later on.
 			</tr>
 			<!-- Enigma Berry Pokemon -->
 			<tr>
-				<td ng-repeat="pokemonType in ['poliwag', 'abra', 'machop']" ng-include="'pokemonCell'"></td>
+				<td ng-repeat="pokemonType in ['poliwag', 'abra', 'machop', 'bellsprout']" ng-include="'pokemonCell'"></td>
+			</tr>
+			<!-- Pecha Berry Pokemon -->
+			<tr>
+				<td ng-repeat="pokemonType in ['tentacool', 'geodude', 'ponyta', 'slowpoke']" ng-include="'pokemonCell'"></td>
+			</tr>
+			<!-- Rawst Berry Pokemon -->
+			<tr>
+				<td ng-repeat="pokemonType in ['magnemite', 'doduo', 'seel', 'grimer']" ng-include="'pokemonCell'"></td>
 			</tr>
 		</table>
 
 		<script type="text/ng-template" id="pokemonCell">
 			<img ng-src="Images/{{pokemonType}}.png", ng-click="buyPokemon(pokemonType)">
-			{{pokemonType | capitalize}} {{gameData.pokemon[pokemonType].count}}<br />
+			{{pokemonType | capitalize}}: {{gameData.pokemon[pokemonType].count}}<br />
 			Cost: {{gameData.pokemon[pokemonType].nextCost}} {{gameData.pokemon[pokemonType].cost.berryType}} berries<br>
 			<strong>Gives:</strong>
 			<div ng-repeat="(berryType, berryQty) in gameData.pokemon[pokemonType].gives">
@@ -77,7 +85,8 @@ Code for later on.
 
 		<br/><br/><br/>
 
-		<img src="Images/reset.png" height='64' width='64' ng-click="resetGame()"/> Restart Game
+		<img src="Images/reset.png" height='64' width='64' ng-click="resetGame()"/>
+		Disclaimer: If there are new Pokemon that do not have any numbers or there is a type of berry that does not have any numbers, you will have to reset your game to get those working.
 
 		<script src="bower_components/angular/angular.js"></script>
 		<script type="text/javascript" src="main.js"></script>

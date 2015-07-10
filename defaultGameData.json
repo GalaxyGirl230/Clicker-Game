@@ -19,6 +19,14 @@
     "enigma": {
       "count": 0,
       "perSec": 0
+    },
+    "pecha": {
+      "count": 0,
+      "perSec": 0
+    },
+    "rawst": {
+      "count": 0,
+      "perSec": 0
     }
   },
   "pokemon": {
@@ -194,7 +202,9 @@
         "power": 1.5,
         "berryType": "enigma"
       },
-      "gives": {"enigma": 5}
+      "gives": {
+        "enigma": 5
+      }
     },
     "machop": {
       "count": 0,
@@ -206,7 +216,107 @@
       "gives": {
         "enigma": 10
       }
+    },
+    "bellsprout": {
+      "count": 0,
+      "cost": {
+        "num": 6000,
+        "power": 1.5,
+        "berryType": "enigma"
+      },
+      "gives": {
+        "enigma": 50
+      }
+    },
+    "tentacool": {
+      "count": 0,
+      "cost": {
+        "num": 8000,
+        "power": 1.5,
+        "berryType": "enigma"
+      },
+      "gives": {
+        "enigma": 75,
+        "pecha": 1
+      }
+    },
+    "geodude": {
+      "count": 0,
+      "cost": {
+        "num": 1000,
+        "power": 1.5,
+        "berryType": "pecha"
+      },
+      "gives": {
+        "pecha": 5
+      }
+    },
+    "ponyta": {
+      "count": 0,
+      "cost": {
+        "num": 4000,
+        "power": 1.5,
+        "berryType": "pecha"
+      },
+      "gives": {
+        "pecha": 10
+      }
+    },
+    "slowpoke": {
+      "count": 0,
+      "cost": {
+        "num": 6000,
+        "power": 1.5,
+        "berryType": "pecha"
+      },
+      "gives":{
+        "pecha": 50
+      }
+    },
+    "magnemite": {
+      "count": 0,
+      "cost": {
+        "num": 8000,
+        "power": 1.5,
+        "berryType": "pecha"
+      },
+      "gives": {
+        "pecha": 75,
+        "rawst": 1
+      }
+    },
+    "doduo": {
+      "count": 0,
+      "cost": {
+        "num": 1000,
+        "power": 1.5,
+        "berryType": "rawst"
+      },
+      "gives": {
+        "rawst": 5
+      }
+    },
+    "seel": {
+      "count": 0,
+      "cost": {
+        "num": 4000,
+        "power": 1.5,
+        "berryType": "rawst"
+      },
+      "gives": {
+        "rawst": 10
+      }
+    },
+    "grimer": {
+      "count": 0,
+      "cost": {
+        "num": 6000,
+        "power": 1.5,
+        "berryType": "rawst"
+      },
+      "gives": {
+        "rawst": 50
+      }
     }
-
   }
 }
