@@ -27,46 +27,62 @@
     "rawst": {
       "count": 0,
       "perSec": 0
+    },
+    "coba": {
+      "count": 0,
+      "perSec": 0
+    },
+    "custap": {
+      "count": 0,
+      "perSec": 0
     }
   },
   "pokemon": {
-    "charmander": {
+    "magikarp": {
       "count": 0,
       "cost": {
         "num": 10,
         "power": 1.1,
         "berryType": "sitrus"
       },
-      "gives": {"sitrus": 1}
+      "gives": {
+        "sitrus": 1
+      }
+    },
+    "charmander": {
+      "count": 0,
+      "cost": {
+        "num": 50,
+        "power": 1.1,
+        "berryType": "sitrus"
+      },
+      "gives": {
+        "sitrus": 5
+      }
     },
     "bulbasaur": {
       "count": 0,
       "cost": {
-        "num": 50,
+        "num": 100,
         "power": 1.3,
         "berryType": "sitrus"
       },
-      "gives": {"sitrus": 5}
+      "gives": {
+        "sitrus": 10
+      }
     },
     "squirtle": {
-      "count": 0,
-      "cost": {
-        "num": 100,
-        "power": 1.5,
-        "berryType": "sitrus"
-      },
-      "gives": {"sitrus": 10}
-    },
-    "pikachu": {
       "count": 0,
       "cost": {
         "num": 500,
         "power": 1.5,
         "berryType": "sitrus"
       },
-      "gives": {"sitrus": 50}
+      "gives": {
+        "sitrus": 50
+      }
     },
-    "piplup": {
+    "pikachu": {
       "count": 0,
       "cost": {
         "num": 1000,
@@ -78,34 +94,40 @@
         "leppa": 1
       }
     },
-    "turtwig": {
+    "piplup": {
       "count": 0,
       "cost": {
         "num": 1000,
         "power": 1.5,
         "berryType": "leppa"
       },
-      "gives": {"leppa": 5}
+      "gives": {
+        "leppa": 5
+      }
     },
-    "weedle": {
+    "turtwig": {
       "count": 0,
       "cost": {
         "num": 4000,
         "power": 1.5,
         "berryType": "leppa"
       },
-      "gives": {"leppa": 10}
+      "gives": {
+        "leppa": 10
+      }
     },
-    "pidgey": {
+    "weedle": {
       "count": 0,
       "cost": {
         "num": 6000,
         "power": 1.5,
         "berryType": "leppa"
       },
-      "gives": {"leppa": 50}
+      "gives": {
+        "leppa": 50
+      }
     },
-    "rattata": {
+    "pidgey": {
       "count": 0,
       "cost": {
         "num": 8000,
@@ -117,34 +139,40 @@
         "lum": 1
       }
     },
-    "caterpie": {
+    "rattata": {
       "count": 0,
       "cost": {
         "num": 1000,
         "power": 1.5,
         "berryType": "lum"
       },
-      "gives": {"lum": 5}
+      "gives": {
+        "lum": 5
+      }
     },
-    "ekans": {
+    "caterpie": {
       "count": 0,
       "cost": {
         "num": 4000,
         "power": 1.5,
         "berryType": "lum"
       },
-      "gives": {"lum": 10}
+      "gives": {
+        "lum": 10
+      }
     },
-    "vulpix": {
+    "ekans": {
       "count": 0,
       "cost": {
         "num": 6000,
         "power": 1.5,
         "berryType": "lum"
       },
-      "gives": {"lum": 50}
+      "gives": {
+        "lum": 50
+      }
     },
-    "spearow": {
+    "vulpix": {
       "count": 0,
       "cost": {
         "num": 8000,
@@ -156,34 +184,40 @@
         "oran": 1
       }
     },
-    "sandshrew": {
+    "spearow": {
       "count": 0,
       "cost": {
         "num": 1000,
         "power": 1.5,
         "berryType": "oran"
       },
-      "gives": {"oran": 5}
+      "gives": {
+        "oran": 5
+      }
     },
-    "oddish": {
+    "sandshrew": {
       "count": 0,
       "cost": {
         "num": 4000,
         "power": 1.5,
         "berryType": "oran"
       },
-      "gives": {"oran": 10}
+      "gives": {
+        "oran": 10
+      }
     },
-    "diglett": {
+    "oddish": {
       "count": 0,
       "cost": {
         "num": 6000,
         "power": 1.5,
         "berryType": "oran"
       },
-      "gives": {"oran": 50}
+      "gives": {
+        "oran": 50
+      }
     },
-    "poliwag": {
+    "diglett": {
       "count": 0,
       "cost": {
         "num": 8000,
@@ -195,7 +229,7 @@
         "enigma": 1
       }
     },
-    "abra": {
+    "poliwag": {
       "count": 0,
       "cost": {
         "num": 1000,
@@ -206,7 +240,7 @@
         "enigma": 5
       }
     },
-    "machop": {
+    "abra": {
       "count": 0,
       "cost": {
         "num": 4000,
@@ -217,7 +251,7 @@
         "enigma": 10
       }
     },
-    "bellsprout": {
+    "machop": {
       "count": 0,
       "cost": {
         "num": 6000,
@@ -228,7 +262,7 @@
         "enigma": 50
       }
     },
-    "tentacool": {
+    "bellsprout": {
       "count": 0,
       "cost": {
         "num": 8000,
@@ -240,7 +274,7 @@
         "pecha": 1
       }
     },
-    "geodude": {
+    "tentacool": {
       "count": 0,
       "cost": {
         "num": 1000,
@@ -251,7 +285,7 @@
         "pecha": 5
       }
     },
-    "ponyta": {
+    "geodude": {
       "count": 0,
       "cost": {
         "num": 4000,
@@ -262,30 +296,30 @@
         "pecha": 10
       }
     },
-    "slowpoke": {
+    "ponyta": {
       "count": 0,
       "cost": {
         "num": 6000,
         "power": 1.5,
         "berryType": "pecha"
       },
-      "gives":{
+      "gives": {
         "pecha": 50
       }
     },
-    "magnemite": {
+    "slowpoke": {
       "count": 0,
       "cost": {
         "num": 8000,
         "power": 1.5,
         "berryType": "pecha"
       },
-      "gives": {
+      "gives":{
         "pecha": 75,
         "rawst": 1
       }
     },
-    "doduo": {
+    "magnemite": {
       "count": 0,
       "cost": {
         "num": 1000,
@@ -296,7 +330,7 @@
         "rawst": 5
       }
     },
-    "seel": {
+    "doduo": {
       "count": 0,
       "cost": {
         "num": 4000,
@@ -307,7 +341,7 @@
         "rawst": 10
       }
     },
-    "grimer": {
+    "seel": {
       "count": 0,
       "cost": {
         "num": 6000,
@@ -316,6 +350,63 @@
       },
       "gives": {
         "rawst": 50
+      }
+    },
+    "grimer": {
+      "count": 0,
+      "cost": {
+        "num": 8000,
+        "power": 1.5,
+        "berryType": "rawst"
+      },
+      "gives": {
+        "rawst": 75,
+        "coba": 1
+      }
+    },
+    "shelder": {
+      "count": 0,
+      "cost": {
+        "num": 1000,
+        "power": 1.5,
+        "berryType": "coba"
+      },
+      "gives": {
+        "coba": 5
+      }
+    },
+    "": {
+      "count": 0,
+      "cost": {
+        "num": 4000,
+        "power": 1.5,
+        "berryType": "coba"
+      },
+      "gives": {
+        "coba": 10
+      }
+    },
+    "": {
+      "count": 0,
+      "cost": {
+        "num": 6000,
+        "power": 1.5,
+        "berryType": "coba"
+      },
+      "gives": {
+        "coba": 50
+      }
+    },
+    "": {
+      "count": 0,
+      "cost": {
+        "num": 8000,
+        "power": 1.5,
+        "berryType": "coba"
+      },
+      "gives": {
+        "coba": 75,
+        "custap": 1
       }
     }
   }
