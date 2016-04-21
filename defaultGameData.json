@@ -364,7 +364,7 @@
         "coba": 1
       }
     },
-    "shelder": {
+    "shellder": {
       "count": 0,
       "cost": {
         "num": 1000,
@@ -375,7 +375,7 @@
         "coba": 5
       }
     },
-    "": {
+    "eevee": {
       "count": 0,
       "cost": {
         "num": 4000,
@@ -386,7 +386,7 @@
         "coba": 10
       }
     },
-    "": {
+    "gastly": {
       "count": 0,
       "cost": {
         "num": 6000,
@@ -397,7 +397,7 @@
         "coba": 50
       }
     },
-    "": {
+    "rhyhorn": {
       "count": 0,
       "cost": {
         "num": 8000,
@@ -407,6 +407,50 @@
       "gives": {
         "coba": 75,
         "custap": 1
+      }
+    },
+    "horsea": {
+      "count": 0,
+      "cost": {
+        "num": 1000,
+        "power": 1.5,
+        "berryType": "custap"
+      },
+      "gives": {
+        "custap": 5
+      }
+    },
+    "dratini": {
+      "count": 0,
+      "cost": {
+        "num": 4000,
+        "power": 1.5,
+        "berryType": "custap"
+      },
+      "gives": {
+        "custap": 10
+      }
+    },
+    "snorlax": {
+      "count": 0,
+      "cost": {
+        "num": 6000,
+        "power": 1.5,
+        "berryType": "custap"
+      },
+      "gives": {
+        "custap": 50
+      }
+    },
+    "mew": {
+      "count": 0,
+      "cost": {
+        "num": 8000,
+        "power": 1.5,
+        "berryType": "custap"
+      },
+      "gives": {
+        "custap": 75
       }
     }
   }
